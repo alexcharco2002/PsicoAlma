@@ -12,7 +12,7 @@
 .section-kicker {
   margin: 0 0 12px;
   color: var(--color-primary);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -21,7 +21,7 @@
 .section-title {
   margin: 0;
   color: var(--color-on-surface);
-  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-size: clamp(2.25rem, 4.2vw, 3.45rem);
   line-height: 1.05;
   font-weight: 800;
 }
@@ -29,7 +29,7 @@
 .section-copy {
   margin: 16px 0 0;
   color: var(--color-on-surface-variant);
-  font-size: 1rem;
+  font-size: 1.12rem;
   line-height: 1.75;
 }
 
@@ -41,9 +41,10 @@
   justify-content: center;
   gap: 10px;
   min-height: 48px;
-  padding: 0 28px;
+  padding: 0 32px;
   border-radius: 999px;
   font-weight: 800;
+  font-size: 1.05rem;
   text-decoration: none;
   transition:
     transform 180ms ease,
@@ -87,7 +88,7 @@
   }
 
   .section-title {
-    font-size: clamp(1.9rem, 9vw, 2.65rem);
+    font-size: clamp(2rem, 9vw, 2.85rem);
   }
 
   .primary-button,

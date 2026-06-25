@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   width: min(100% - 48px, 1200px);
-  height: 72px;
+  height: 76px;
   margin-inline: auto;
 }
 
@@ -33,14 +33,14 @@
   gap: 10px;
   background: transparent;
   color: var(--color-primary);
-  font-size: 1.55rem;
+  font-size: 1.72rem;
   font-weight: 800;
 }
 
 .brand__mark {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border-radius: 9px;
   background: var(--color-primary);
@@ -56,8 +56,8 @@
 .site-nav__link {
   background: transparent;
   color: var(--color-on-surface-variant);
-  font-size: 0.83rem;
-  font-weight: 700;
+  font-size: 0.96rem;
+  font-weight: 800;
   transition: color 180ms ease;
 }
 
@@ -75,17 +75,17 @@
 .account-button {
   background: transparent;
   color: var(--color-on-surface-variant);
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: 0.96rem;
+  font-weight: 800;
 }
 
 .help-button {
-  min-width: 138px;
-  min-height: 40px;
+  min-width: 146px;
+  min-height: 44px;
   border-radius: 999px;
   background: var(--color-primary);
   color: var(--color-on-primary);
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   font-weight: 800;
   box-shadow: 0 12px 24px rgb(0 93 172 / 16%);
 }
@@ -110,7 +110,7 @@
   }
 
   .brand {
-    font-size: 1.35rem;
+    font-size: 1.48rem;
   }
 
   .help-button {
@@ -146,6 +146,7 @@
     color: var(--color-on-surface);
     padding: 14px 16px;
     text-align: left;
+    font-size: 1rem;
     font-weight: 800;
   }
 
@@ -162,11 +163,12 @@
 
   .mobile-nav__account,
   .mobile-nav__help {
-    min-height: 44px;
+    min-height: 48px;
     border: 0;
     border-radius: 999px;
     font: inherit;
     font-weight: 800;
+    font-size: 1rem;
     cursor: pointer;
   }
 
@@ -183,11 +185,11 @@
 
 @media (max-width: 420px) {
   .site-header__inner {
-    height: 64px;
+    height: 68px;
   }
 
   .brand {
-    font-size: 1.18rem;
+    font-size: 1.3rem;
   }
 
   .brand__mark {
