@@ -62,6 +62,7 @@ src/
   pages/
     HomePage/
     CarePage/
+    EvaluationPage/
     DiseasesPage/
     ResourcesPage/
     CommunityPage/
@@ -78,6 +79,7 @@ src/
 
 - Inicio: pagina principal con hero, llamada a la accion y resumen de cuidados.
 - Cuidados: evaluacion, diagnostico, tratamiento, prevencion y promocion.
+- Evaluacion: formulario por pasos para orientacion emocional inicial.
 - Enfermedades: introduccion y principales enfermedades catastroficas.
 - Recursos: biblioteca de apoyo para pacientes, familias y cuidadores.
 - Comunidad: comentarios guardados localmente en el navegador.

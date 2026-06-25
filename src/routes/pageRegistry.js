@@ -3,12 +3,14 @@ import CarePage from '../pages/CarePage/CarePage';
 import ResourcesPage from '../pages/ResourcesPage/ResourcesPage';
 import CommunityPage from '../pages/CommunityPage/CommunityPage';
 import DiseasesPage from '../pages/DiseasesPage/DiseasesPage';
+import EvaluationPage from '../pages/EvaluationPage/EvaluationPage';
 
 export const defaultPageId = 'inicio';
 
 export const appRoutes = [
   { id: 'inicio', path: '/', component: HomePage },
   { id: 'cuidados', path: '/cuidados', component: CarePage },
+  { id: 'evaluacion', path: '/evaluacion', component: EvaluationPage },
   { id: 'enfermedades', path: '/enfermedades', component: DiseasesPage },
   { id: 'recursos', path: '/recursos', component: ResourcesPage },
   { id: 'comunidad', path: '/comunidad', component: CommunityPage },
@@ -17,6 +19,7 @@ export const appRoutes = [
 export const pageRegistry = {
   inicio: HomePage,
   cuidados: CarePage,
+  evaluacion: EvaluationPage,
   enfermedades: DiseasesPage,
   recursos: ResourcesPage,
   comunidad: CommunityPage,

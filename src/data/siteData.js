@@ -12,6 +12,7 @@ import {
 export const navigation = [
   { id: 'inicio', label: 'Inicio', path: '/' },
   { id: 'cuidados', label: 'Cuidados', path: '/cuidados' },
+  { id: 'evaluacion', label: 'Evaluacion', path: '/evaluacion' },
   { id: 'enfermedades', label: 'Enfermedades', path: '/enfermedades' },
   { id: 'recursos', label: 'Recursos', path: '/recursos' },
   { id: 'comunidad', label: 'Comunidad', path: '/comunidad' },

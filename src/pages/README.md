@@ -6,6 +6,7 @@ Pestañas actuales:
 
 - `HomePage`: bienvenida.
 - `CarePage`: ruta de cuidado psicologico.
+- `EvaluationPage`: evaluacion emocional inicial.
 - `DiseasesPage`: enfermedades catastroficas.
 - `ResourcesPage`: recursos educativos.
 - `CommunityPage`: comentarios y comunidad.
