@@ -11,11 +11,13 @@ import {
 
 export const navigation = [
   { id: 'inicio', label: 'Inicio', path: '/' },
-  { id: 'cuidados', label: 'Cuidados', path: '/cuidados' },
-  { id: 'evaluacion', label: 'Evaluacion', path: '/evaluacion' },
   { id: 'enfermedades', label: 'Enfermedades', path: '/enfermedades' },
-  { id: 'recursos', label: 'Recursos', path: '/recursos' },
-  { id: 'comunidad', label: 'Comunidad', path: '/comunidad' },
+  { id: 'tratamiento', label: 'Tratamiento', path: '/tratamiento' },
+  { id: 'prevencion', label: 'Prevencion', path: '/prevencion' },
+  { id: 'servicios', label: 'Servicios', path: '/servicios' },
+  { id: 'evaluacion', label: 'Evaluacion', path: '/evaluacion' },
+
+  
 ];
 
 export const careServices = [

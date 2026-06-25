@@ -15,8 +15,8 @@ function Footer({ onNavigate }) {
           </p>
         </div>
 
-        <FooterColumn title="Plataforma" items={['Evaluacion', 'Diagnostico', 'Tratamiento', 'Prevencion']} onNavigate={onNavigate} />
-        <FooterColumn title="Recursos" items={['Guias', 'Cuidadores', 'Familias', 'Centro de ayuda']} onNavigate={onNavigate} />
+        <FooterColumn title="Plataforma" items={['Servicios', 'Evaluacion', 'Tratamiento', 'Prevencion']} onNavigate={onNavigate} />
+        <FooterColumn title="Apoyo" items={['Enfermedades', 'Contacto', 'Orientacion', 'Especialistas']} onNavigate={onNavigate} />
 
         <div>
           <h3 className="site-footer__title">Contacto</h3>
@@ -45,13 +45,28 @@ function FooterColumn({ title, items, onNavigate }) {
       <h3 className="site-footer__title">{title}</h3>
       <div className="site-footer__links">
         {items.map((item) => (
-          <button key={item} type="button" onClick={() => onNavigate(title === 'Plataforma' ? 'cuidados' : 'recursos')}>
+          <button key={item} type="button" onClick={() => onNavigate(getFooterTarget(item))}>
             {item}
           </button>
         ))}
       </div>
     </div>
   );
+}
+
+function getFooterTarget(item) {
+  const targets = {
+    Servicios: 'servicios',
+    Evaluacion: 'evaluacion',
+    Tratamiento: 'tratamiento',
+    Prevencion: 'prevencion',
+    Enfermedades: 'enfermedades',
+    Contacto: 'contacto',
+    Orientacion: 'evaluacion',
+    Especialistas: 'contacto',
+  };
+
+  return targets[item] ?? 'inicio';
 }
 
 export default Footer;

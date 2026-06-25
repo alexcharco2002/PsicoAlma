@@ -1,28 +1,31 @@
 import HomePage from '../pages/HomePage/HomePage';
-import CarePage from '../pages/CarePage/CarePage';
-import ResourcesPage from '../pages/ResourcesPage/ResourcesPage';
-import CommunityPage from '../pages/CommunityPage/CommunityPage';
+import ServicesPage from '../pages/ServicesPage/ServicesPage';
 import DiseasesPage from '../pages/DiseasesPage/DiseasesPage';
 import EvaluationPage from '../pages/EvaluationPage/EvaluationPage';
+import ContactPage from '../pages/ContactPage/ContactPage';
+import PreventionPage from '../pages/PreventionPage/PreventionPage';
+import TreatmentPage from '../pages/TreatmentPage/TreatmentPage';
 
 export const defaultPageId = 'inicio';
 
 export const appRoutes = [
   { id: 'inicio', path: '/', component: HomePage },
-  { id: 'cuidados', path: '/cuidados', component: CarePage },
+  { id: 'servicios', path: '/servicios', component: ServicesPage },
   { id: 'evaluacion', path: '/evaluacion', component: EvaluationPage },
+  { id: 'prevencion', path: '/prevencion', component: PreventionPage },
+  { id: 'tratamiento', path: '/tratamiento', component: TreatmentPage },
   { id: 'enfermedades', path: '/enfermedades', component: DiseasesPage },
-  { id: 'recursos', path: '/recursos', component: ResourcesPage },
-  { id: 'comunidad', path: '/comunidad', component: CommunityPage },
+  { id: 'contacto', path: '/contacto-general', component: ContactPage },
 ];
 
 export const pageRegistry = {
   inicio: HomePage,
-  cuidados: CarePage,
+  servicios: ServicesPage,
   evaluacion: EvaluationPage,
+  prevencion: PreventionPage,
+  tratamiento: TreatmentPage,
   enfermedades: DiseasesPage,
-  recursos: ResourcesPage,
-  comunidad: CommunityPage,
+  contacto: ContactPage,
 };
 
 const routeByPath = new Map(appRoutes.map((route) => [route.path, route]));

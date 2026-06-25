@@ -65,7 +65,7 @@ function DiseasesPage() {
         </div>
 
         <div className="diseases-intro">
-          <h2>Introduccion</h2>
+          <h2>¿Qué son las enfermedades catastroficas?</h2>
           <p>
             Una enfermedad catastrofica no solo impacta el cuerpo, tambien toca las emociones, los suenos y la vida de
             quienes rodean al paciente. El miedo, la tristeza, la incertidumbre y la preocupacion pueden estar presentes

@@ -22,10 +22,10 @@ function HomePage({ comments, onNavigate }) {
             </p>
 
             <div className="home-hero__actions">
-              <button type="button" className="primary-button" onClick={() => onNavigate('cuidados')}>
+              <button type="button" className="primary-button" onClick={() => onNavigate('servicios')}>
                 Empezar ahora
               </button>
-              <button type="button" className="secondary-button" onClick={() => onNavigate('recursos')}>
+              <button type="button" className="secondary-button" onClick={() => onNavigate('enfermedades')}>
                 Saber mas
               </button>
             </div>
@@ -87,7 +87,7 @@ function HomePage({ comments, onNavigate }) {
 
         <div className="home-note">
           <strong>{comments.length} comentarios guardados</strong>
-          <span>La comunidad se trabaja en una pagina separada para mantener el proyecto ordenado.</span>
+          <span>Los comentarios se guardan localmente mientras se conecta una base de datos real.</span>
         </div>
       </section>
 
@@ -130,10 +130,10 @@ function HomePage({ comments, onNavigate }) {
           <h2>¿Listo para sentirte acompañado?</h2>
           <p>Unete a personas que han encontrado un refugio y herramientas practicas en nuestra plataforma.</p>
           <div className="home-cta__actions">
-            <button type="button" onClick={() => onNavigate('comunidad')}>
+            <button type="button" onClick={() => onNavigate('contacto')}>
               Crear cuenta gratuita
             </button>
-            <button type="button" onClick={() => onNavigate('cuidados')}>
+            <button type="button" onClick={() => onNavigate('contacto')}>
               Hablar con un asesor
             </button>
           </div>

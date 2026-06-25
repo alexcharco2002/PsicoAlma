@@ -35,11 +35,8 @@ function Header({ activePage, onNavigate }) {
         </nav>
 
         <div className="site-header__actions">
-          <button type="button" className="account-button" onClick={() => navigate('comunidad')}>
-            Mi Cuenta
-          </button>
-          <button type="button" className="help-button" onClick={() => navigate('cuidados')}>
-            Pedir Ayuda
+          <button type="button" className="help-button" onClick={() => navigate('contacto')}>
+            Contactos
           </button>
         </div>
 
@@ -67,11 +64,8 @@ function Header({ activePage, onNavigate }) {
             </button>
           ))}
           <div className="mobile-nav__actions">
-            <button type="button" className="mobile-nav__account" onClick={() => navigate('comunidad')}>
-              Mi Cuenta
-            </button>
-            <button type="button" className="mobile-nav__help" onClick={() => navigate('cuidados')}>
-              Pedir Ayuda
+            <button type="button" className="mobile-nav__help" onClick={() => navigate('contacto')}>
+              Contactos
             </button>
           </div>
         </nav>

@@ -61,7 +61,7 @@ src/
     siteData.js
   pages/
     HomePage/
-    CarePage/
+    ServicesPage/
     EvaluationPage/
     DiseasesPage/
     ResourcesPage/
@@ -77,7 +77,7 @@ src/
 
 ## Paginas actuales
 
-- Inicio: pagina principal con hero, llamada a la accion y resumen de cuidados.
+- Inicio: pagina principal con hero, llamada a la accion y resumen de servicios.
 - Cuidados: evaluacion, diagnostico, tratamiento, prevencion y promocion.
 - Evaluacion: formulario por pasos para orientacion emocional inicial.
 - Enfermedades: introduccion y principales enfermedades catastroficas.

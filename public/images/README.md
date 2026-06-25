@@ -36,6 +36,15 @@ public/images/diseases/vih-sida.jpg
 public/images/diseases/enfermedades-raras.jpg
 ```
 
+Para la pagina de contacto general, coloca las fotos de especialistas en:
+
+```text
+public/images/specialists/elena-martinez.jpg
+public/images/specialists/carlos-ruiz.jpg
+public/images/specialists/sofia-valdes.jpg
+public/images/specialists/javier-soto.jpg
+```
+
 En React/Vite se usan asi:
 
 ```jsx
