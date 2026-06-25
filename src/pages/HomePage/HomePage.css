@@ -336,17 +336,13 @@
 }
 
 .home-quote {
-  padding: 76px 0 90px;
+  padding: 48px 0 90px;
   text-align: center;
-}
-
-.home-quote svg {
-  color: rgb(25 118 210 / 38%);
 }
 
 .home-quote blockquote {
   max-width: 920px;
-  margin: 28px auto 0;
+  margin: 0 auto;
   color: #061e2b;
   font-size: clamp(2rem, 4vw, 3.35rem);
   font-style: italic;

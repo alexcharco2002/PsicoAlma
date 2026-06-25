@@ -1,4 +1,4 @@
-import { Heart, Quote, ShieldCheck, Star } from 'lucide-react';
+import { Heart, ShieldCheck, Star } from 'lucide-react';
 import { careServices } from '../../data/siteData';
 import './HomePage.css';
 
@@ -119,7 +119,6 @@ function HomePage({ comments, onNavigate }) {
       </section>
 
       <section className="home-quote page-section">
-        <Quote size={46} fill="currentColor" />
         <blockquote>
           "El cuidado no es solo una tarea, es un acto de valentia y amor que merece ser sostenido por una red de apoyo."
         </blockquote>
