@@ -1,4 +1,4 @@
-import { AlertCircle, HeartPulse } from 'lucide-react';
+import { AlertCircle, CloudRain, HeartPulse, ShieldCheck, UsersRound } from 'lucide-react';
 import './DiseasesPage.css';
 
 const diseases = [
@@ -56,11 +56,14 @@ function DiseasesPage() {
   return (
     <div className="diseases-page">
       <section className="diseases-hero page-section">
-        <div className="diseases-hero__label">
-          <HeartPulse size={20} />
-          Enfermedades catastroficas
+        <div className="diseases-hero__heading">
+          <div className="diseases-hero__label">
+            <HeartPulse size={20} />
+            Enfermedades catastroficas
+          </div>
+          <h1>Acerca de las enfermedades catastroficas</h1>
         </div>
-        <h1>Acerca de las enfermedades catastroficas</h1>
+
         <div className="diseases-intro">
           <h2>Introduccion</h2>
           <p>
@@ -71,6 +74,24 @@ function DiseasesPage() {
             experiencia.
           </p>
         </div>
+      </section>
+
+      <section className="emotional-impact page-section" aria-label="Impacto emocional">
+        <article>
+          <CloudRain size={28} />
+          <h2>Impacto emocional</h2>
+          <p>El miedo, la tristeza y la incertidumbre pueden aparecer desde el diagnostico y durante el tratamiento.</p>
+        </article>
+        <article>
+          <UsersRound size={28} />
+          <h2>Entorno familiar</h2>
+          <p>La familia y los cuidadores tambien viven preocupacion, cansancio y cambios en su vida diaria.</p>
+        </article>
+        <article>
+          <ShieldCheck size={28} />
+          <h2>Apoyo psicologico</h2>
+          <p>El acompanamiento ayuda a comprender emociones, sostener decisiones y fortalecer redes de apoyo.</p>
+        </article>
       </section>
 
       <section className="diseases-list page-section" aria-labelledby="diseases-title">
