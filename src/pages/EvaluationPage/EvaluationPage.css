@@ -219,6 +219,11 @@
   cursor: pointer;
 }
 
+.evaluation-modal__close:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .evaluation-modal__header {
   padding: 0 54px;
   text-align: center;
@@ -267,6 +272,30 @@
   padding: 4px 10px;
   font-size: 0.82rem;
   font-weight: 800;
+}
+
+.evaluation-progress__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.evaluation-progress__step {
+  min-width: 0;
+  padding: 7px 8px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 62%);
+  color: var(--color-on-surface-variant);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.evaluation-progress__step--active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .evaluation-progress__track {
@@ -461,9 +490,125 @@
   box-shadow: 0 0 0 4px rgb(0 93 172 / 12%);
 }
 
+.field-error {
+  color: #93000a;
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .notes-field {
   margin-top: 24px;
   text-align: left;
+}
+
+.additional-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.additional-grid label {
+  display: grid;
+  gap: 8px;
+  color: #061e2b;
+  font-weight: 900;
+}
+
+.additional-grid input,
+.additional-grid select {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 14px;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+  font: inherit;
+  outline: none;
+  padding: 0 14px;
+}
+
+.additional-grid input:focus,
+.additional-grid select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(0 93 172 / 12%);
+}
+
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 18px;
+  border: 2px solid rgb(25 118 210 / 14%);
+  border-radius: 18px;
+  background: var(--color-surface-container-low);
+  color: #061e2b;
+  cursor: pointer;
+  text-align: left;
+  transition: border 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.consent-checkbox--checked {
+  border-color: var(--color-primary);
+  background: var(--color-primary-fixed);
+  box-shadow: 0 14px 30px rgb(0 93 172 / 10%);
+}
+
+.consent-checkbox input {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+  accent-color: var(--color-primary);
+}
+
+.consent-checkbox span {
+  display: grid;
+  gap: 6px;
+}
+
+.consent-checkbox strong {
+  font-size: 1rem;
+}
+
+.consent-checkbox small {
+  color: var(--color-on-surface-variant);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.risk-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid rgb(186 26 26 / 24%);
+  border-radius: 18px;
+  background: #ffdad6;
+  color: #93000a;
+  text-align: left;
+}
+
+.risk-alert svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.risk-alert p {
+  margin: 0;
+  color: inherit;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.risk-alert--result {
+  width: min(620px, 100%);
+  margin-top: 0;
 }
 
 .evaluation-summary {
@@ -549,11 +694,45 @@
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
+.tracking-code {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--color-surface-container);
+  color: var(--color-primary) !important;
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
 .evaluation-result p {
   max-width: 620px;
   margin: 0;
   color: var(--color-on-surface-variant);
   line-height: 1.7;
+}
+
+.evaluation-mail-status {
+  width: min(620px, 100%);
+  padding: 14px 18px;
+  border: 1px solid rgb(25 118 210 / 18%);
+  border-radius: 16px;
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-variant);
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.evaluation-mail-status--sent {
+  border-color: rgb(0 150 136 / 24%);
+  background: rgb(151 243 226 / 35%);
+  color: #005047;
+}
+
+.evaluation-mail-status--failed {
+  border-color: rgb(186 26 26 / 24%);
+  background: #ffdad6;
+  color: #93000a;
 }
 
 @media (max-width: 980px) {
@@ -596,6 +775,7 @@
   .evaluation-info,
   .evaluation-review-grid,
   .contact-grid,
+  .additional-grid,
   .symptom-grid {
     grid-template-columns: 1fr;
   }
@@ -630,8 +810,13 @@
   }
 
   .evaluation-progress__meta,
+  .evaluation-progress__steps,
   .evaluation-actions {
     flex-direction: column;
+  }
+
+  .evaluation-progress__steps {
+    grid-template-columns: 1fr;
   }
 
   .evaluation-actions {

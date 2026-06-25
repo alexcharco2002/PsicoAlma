@@ -1,4 +1,4 @@
-import { LifeBuoy, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { navigation } from '../../data/siteData';
 import './Header.css';
@@ -16,7 +16,7 @@ function Header({ activePage, onNavigate }) {
       <div className="site-header__inner">
         <button type="button" className="brand" onClick={() => navigate('inicio')}>
           <span className="brand__mark">
-            <LifeBuoy size={21} />
+            <img src="/images/icono_psicoalma.png" alt="" />
           </span>
           <span>PsicoAlma</span>
         </button>

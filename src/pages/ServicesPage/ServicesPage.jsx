@@ -11,17 +11,17 @@ function ServicesPage({ onNavigate }) {
             <HeartHandshake size={20} />
             Servicios
           </div>
-          <h1>Acompanamiento psicologico por etapas</h1>
+          <h1>Acompañamiento psicológico por etapas</h1>
         </div>
 
         <div className="services-intro">
-          <h2>Que ofrecemos</h2>
+          <h2>Qué ofrecemos</h2>
           <p>
-            Organizamos el apoyo en evaluacion, diagnostico emocional, tratamiento psicologico y prevencion para que cada
-            persona tenga una ruta clara, humana y profesional durante el proceso de enfermedad catastrofica.
+            Organizamos el apoyo en evaluación, diagnóstico emocional, tratamiento psicológico y prevención para que cada
+            persona tenga una ruta clara, humana y profesional durante el proceso de enfermedad catastrófica.
           </p>
           <button type="button" className="services-intro__button" onClick={() => onNavigate('evaluacion')}>
-            Iniciar evaluacion
+            Iniciar evaluación
             <ArrowRight size={18} />
           </button>
         </div>
@@ -31,7 +31,7 @@ function ServicesPage({ onNavigate }) {
         <article>
           <CheckCircle2 size={26} />
           <h2>Ruta clara</h2>
-          <p>Se identifican necesidades emocionales y se propone un primer camino de acompanamiento.</p>
+          <p>Se identifican necesidades emocionales y se propone un primer camino de acompañamiento.</p>
         </article>
         <article>
           <CheckCircle2 size={26} />
@@ -41,14 +41,14 @@ function ServicesPage({ onNavigate }) {
         <article>
           <CheckCircle2 size={26} />
           <h2>Seguimiento</h2>
-          <p>La orientacion puede continuar con contacto, recursos y recomendaciones segun cada caso.</p>
+          <p>La orientación puede continuar con contacto, recursos y recomendaciones según cada caso.</p>
         </article>
       </section>
 
       <section className="services-list page-section" aria-labelledby="services-title">
         <div className="services-list__heading">
           <p className="section-kicker">Atencion principal</p>
-          <h2 id="services-title">Servicios de apoyo psicologico</h2>
+          <h2 id="services-title">Servicios de apoyo psicológico</h2>
         </div>
 
         <div className="services-grid">
@@ -83,10 +83,10 @@ function ServicesPage({ onNavigate }) {
       <section className="services-note page-section">
         <AlertCircle size={24} />
         <div>
-          <h2>No sabes por donde empezar?</h2>
-          <p>La evaluacion inicial puede orientar el primer paso segun el momento emocional y la red de apoyo disponible.</p>
+          <h2>¿No sabes por dónde empezar?</h2>
+          <p>La evaluación inicial puede orientar el primer paso según el momento emocional y la red de apoyo disponible.</p>
           <button type="button" onClick={() => onNavigate('evaluacion')}>
-            Empezar evaluacion rapida
+            Empezar evaluación rápida
             <ArrowRight size={18} />
           </button>
         </div>

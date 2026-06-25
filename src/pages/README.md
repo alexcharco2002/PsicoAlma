@@ -5,11 +5,11 @@ Cada pestaña vive en su propia carpeta para que el proyecto pueda crecer sin me
 Pestañas actuales:
 
 - `HomePage`: bienvenida.
-- `ServicesPage`: servicios de apoyo psicologico.
-- `EvaluationPage`: evaluacion emocional inicial.
-- `PreventionPage`: prevencion psicologica y consejos de autocuidado.
-- `TreatmentPage`: tratamientos psicologicos comunes.
-- `DiseasesPage`: enfermedades catastroficas.
+- `ServicesPage`: servicios de apoyo psicológico.
+- `EvaluationPage`: evaluación emocional inicial.
+- `PreventionPage`: prevención psicológica y consejos de autocuidado.
+- `TreatmentPage`: tratamientos psicológicos comunes.
+- `DiseasesPage`: enfermedades catastróficas.
 - `ContactPage`: contacto general y especialistas.
 
 Estructura recomendada para un nuevo módulo:

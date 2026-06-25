@@ -1,6 +1,50 @@
-import { Heart, ShieldCheck, Star } from 'lucide-react';
-import { careServices } from '../../data/siteData';
+import { Activity, ArrowRight, Brain, ClipboardCheck, Heart, HeartHandshake, ShieldCheck, UsersRound } from 'lucide-react';
 import './HomePage.css';
+
+const homeConcepts = [
+  {
+    title: 'Enfermedades catastróficas',
+    text: 'Comprende cómo una enfermedad compleja impacta el cuerpo, las emociones y la vida familiar.',
+    icon: Activity,
+    page: 'enfermedades',
+    tone: 'primary',
+  },
+  {
+    title: 'Tratamiento psicológico',
+    text: 'Conoce formas comunes de apoyo como psicoterapia, terapia familiar, duelo e intervención en crisis.',
+    icon: Brain,
+    page: 'tratamiento',
+    tone: 'secondary',
+  },
+  {
+    title: 'Prevención emocional',
+    text: 'Aprende a reconocer señales de alerta, cuidar rutinas y pedir ayuda antes de llegar a una crisis.',
+    icon: ShieldCheck,
+    page: 'prevencion',
+    tone: 'tertiary',
+  },
+  {
+    title: 'Servicios de apoyo',
+    text: 'Explora la ruta de evaluación, diagnóstico emocional, tratamiento y seguimiento profesional.',
+    icon: HeartHandshake,
+    page: 'servicios',
+    tone: 'primary',
+  },
+  {
+    title: 'Evaluación inicial',
+    text: 'Realiza una evaluación rápida para identificar cómo te sientes y qué tipo de ayuda puedes necesitar.',
+    icon: ClipboardCheck,
+    page: 'evaluacion',
+    tone: 'secondary',
+  },
+  {
+    title: 'Contactos y especialistas',
+    text: 'Encuentra canales de contacto y especialistas que pueden orientar el primer paso de acompañamiento.',
+    icon: UsersRound,
+    page: 'contacto',
+    tone: 'tertiary',
+  },
+];
 
 function HomePage({ comments, onNavigate }) {
   return (
@@ -15,10 +59,9 @@ function HomePage({ comments, onNavigate }) {
 
             <h1>Bienvenidos</h1>
             <p>
-              Este blog sobre apoyo psicologico en enfermedades catastroficas, un espacio informativo dirigido a pacientes,
-              familiares, cuidadores, estudiantes y profesionales de la salud. Aqui se abordara el impacto emocional de
-              estas enfermedades, la importancia del acompanamiento psicologico y las estrategias de apoyo que contribuyen
-              al bienestar y a la calidad de vida de las personas que atraviesan estas situaciones.
+              PsicoAlma es un espacio de apoyo psicológico e información para personas con enfermedades catastróficas,
+              familiares, cuidadores, estudiantes y profesionales de la salud. Aquí encontrarás conceptos básicos,
+              estrategias de cuidado emocional y rutas de acompañamiento para afrontar el proceso con mayor claridad.
             </p>
 
             <div className="home-hero__actions">
@@ -26,7 +69,7 @@ function HomePage({ comments, onNavigate }) {
                 Empezar ahora
               </button>
               <button type="button" className="secondary-button" onClick={() => onNavigate('enfermedades')}>
-                Saber mas
+                Saber más
               </button>
             </div>
 
@@ -36,7 +79,7 @@ function HomePage({ comments, onNavigate }) {
                 <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=120&q=80" alt="" />
                 <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=120&q=80" alt="" />
               </div>
-              <span>+2,000 cuidadores confian en nosotros</span>
+              <span>+2,000 cuidadores confían en nosotros</span>
             </div>
           </div>
 
@@ -44,7 +87,7 @@ function HomePage({ comments, onNavigate }) {
             <div className="hero-photo-card">
               <img
                 src="/images/bienvenida-video.jpg"
-                alt="Video introductorio sobre apoyo psicologico"
+                alt="Video introductorio sobre apoyo psicológico"
                 onError={(event) => {
                   event.currentTarget.src = 'https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1200&q=85';
                 }}
@@ -57,7 +100,7 @@ function HomePage({ comments, onNavigate }) {
               </div>
               <div>
                 <strong>Certificado</strong>
-                <span>Acompanamiento profesional avalado por expertos.</span>
+                <span>Acompañamiento profesional avalado por expertos.</span>
               </div>
             </div>
           </div>
@@ -66,20 +109,24 @@ function HomePage({ comments, onNavigate }) {
 
       <section className="home-preview page-section">
         <div className="home-preview__heading">
-          <p className="section-kicker">Cuidados principales</p>
-          <h2 className="section-title">Una ruta clara para sostener la salud emocional</h2>
+          <p className="section-kicker">Conceptos básicos</p>
+          <h2 className="section-title">Lo más importante para empezar a cuidarte</h2>
         </div>
 
         <div className="home-preview__grid">
-          {careServices.slice(0, 3).map((service) => {
-            const Icon = service.icon;
+          {homeConcepts.map((concept) => {
+            const Icon = concept.icon;
             return (
-              <article key={service.title} className={`preview-card preview-card--${service.tone}`}>
+              <article key={concept.title} className={`preview-card preview-card--${concept.tone}`}>
                 <span>
                   <Icon size={26} />
                 </span>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
+                <h3>{concept.title}</h3>
+                <p>{concept.text}</p>
+                <button type="button" onClick={() => onNavigate(concept.page)}>
+                  Ver más
+                  <ArrowRight size={17} />
+                </button>
               </article>
             );
           })}
@@ -87,23 +134,27 @@ function HomePage({ comments, onNavigate }) {
 
         <div className="home-note">
           <strong>{comments.length} comentarios guardados</strong>
-          <span>Los comentarios se guardan localmente mientras se conecta una base de datos real.</span>
+          <span>Este proyecto puede crecer con más módulos sin comprometer las páginas principales.</span>
         </div>
       </section>
 
-      <section className="home-community page-section" aria-label="Comunidad y confianza">
+      <section className="home-community page-section" aria-label="Ruta de acompañamiento">
         <article className="community-feature">
           <div className="community-feature__copy">
-            <h2>Comunidad de Cuidado</h2>
-            <p>Conecta con otras personas que comparten experiencias similares en un entorno seguro y moderado las 24 horas.</p>
+            <h2>Una ruta para no empezar desde cero</h2>
+            <p>
+              Primero conoce la enfermedad y su impacto emocional. Luego revisa prevención, tratamiento y servicios de
+              apoyo. Si necesitas orientación, la evaluación inicial y contactos te ayudan a dar el siguiente paso.
+            </p>
             <div className="community-feature__tags">
-              <span>#ForosActivos</span>
-              <span>#GruposDuelo</span>
+              <span>#InformaciónClara</span>
+              <span>#ApoyoEmocional</span>
+              <span>#Acompañamiento</span>
             </div>
           </div>
           <img
             src="/images/comunidad-cuidado.jpg"
-            alt="Espacio tranquilo de acompanamiento y cuidado"
+            alt="Espacio tranquilo de acompañamiento y cuidado"
             onError={(event) => {
               event.currentTarget.src = 'https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=85';
             }}
@@ -111,30 +162,30 @@ function HomePage({ comments, onNavigate }) {
         </article>
 
         <article className="rating-card">
-          <Star size={34} fill="currentColor" />
-          <strong>4.9/5</strong>
-          <span>Satisfaccion de nuestra red</span>
-          <p>"Me cambio la forma de ver mi labor como hija y cuidadora."</p>
+          <ShieldCheck size={34} />
+          <strong>6</strong>
+          <span>módulos principales</span>
+          <p>Enfermedades, tratamiento, prevención, servicios, evaluación y contactos.</p>
         </article>
       </section>
 
       <section className="home-quote page-section">
         <blockquote>
-          "El cuidado no es solo una tarea, es un acto de valentia y amor que merece ser sostenido por una red de apoyo."
+          "El cuidado no es solo una tarea, es un acto de valentía y amor que merece ser sostenido por una red de apoyo."
         </blockquote>
         <cite>Equipo PsicoAlma</cite>
       </section>
 
       <section className="home-cta page-section">
         <div className="home-cta__content">
-          <h2>¿Listo para sentirte acompañado?</h2>
-          <p>Unete a personas que han encontrado un refugio y herramientas practicas en nuestra plataforma.</p>
+          <h2>¿Listo para dar el primer paso?</h2>
+          <p>Empieza con una evaluación inicial o contacta al equipo para recibir una orientación más cercana.</p>
           <div className="home-cta__actions">
-            <button type="button" onClick={() => onNavigate('contacto')}>
-              Crear cuenta gratuita
+            <button type="button" onClick={() => onNavigate('evaluacion')}>
+              Empezar evaluación
             </button>
             <button type="button" onClick={() => onNavigate('contacto')}>
-              Hablar con un asesor
+              Ir a contactos
             </button>
           </div>
         </div>

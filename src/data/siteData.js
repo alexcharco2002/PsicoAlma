@@ -13,34 +13,32 @@ export const navigation = [
   { id: 'inicio', label: 'Inicio', path: '/' },
   { id: 'enfermedades', label: 'Enfermedades', path: '/enfermedades' },
   { id: 'tratamiento', label: 'Tratamiento', path: '/tratamiento' },
-  { id: 'prevencion', label: 'Prevencion', path: '/prevencion' },
+  { id: 'prevencion', label: 'Prevención', path: '/prevencion' },
   { id: 'servicios', label: 'Servicios', path: '/servicios' },
-  { id: 'evaluacion', label: 'Evaluacion', path: '/evaluacion' },
-
-  
+  { id: 'evaluacion', label: 'Evaluación', path: '/evaluacion' },
 ];
 
 export const careServices = [
   {
-    title: 'Evaluacion personalizada',
+    title: 'Evaluación personalizada',
     icon: ClipboardCheck,
     tone: 'primary',
-    text: 'Identificamos el estado emocional, red de apoyo y principales necesidades psicologicas.',
+    text: 'Identificamos el estado emocional, red de apoyo y principales necesidades psicológicas.',
   },
   {
-    title: 'Diagnostico emocional',
+    title: 'Diagnóstico emocional',
     icon: Brain,
     tone: 'secondary',
-    text: 'Analizamos ansiedad, duelo, miedo, agotamiento y adaptacion al proceso medico.',
+    text: 'Analizamos ansiedad, duelo, miedo, agotamiento y adaptación al proceso médico.',
   },
   {
-    title: 'Tratamiento psicologico',
+    title: 'Tratamiento psicológico',
     icon: HeartHandshake,
     tone: 'tertiary',
-    text: 'Acompanamiento individual y familiar para fortalecer afrontamiento y comunicacion.',
+    text: 'Acompañamiento individual y familiar para fortalecer afrontamiento y comunicación.',
   },
   {
-    title: 'Prevencion y promocion',
+    title: 'Prevención y promoción',
     icon: ShieldCheck,
     tone: 'primary',
     text: 'Recursos para reconocer alertas, cuidar rutinas y sostener el bienestar emocional.',
@@ -49,9 +47,9 @@ export const careServices = [
 
 export const resources = [
   {
-    title: 'Guia para pacientes',
+    title: 'Guía para pacientes',
     icon: BookOpen,
-    text: 'Primeros pasos para comprender emociones frecuentes despues de un diagnostico complejo.',
+    text: 'Primeros pasos para comprender emociones frecuentes después de un diagnóstico complejo.',
   },
   {
     title: 'Apoyo para cuidadores',
@@ -61,7 +59,7 @@ export const resources = [
   {
     title: 'Primeros auxilios emocionales',
     icon: Activity,
-    text: 'Tecnicas breves para momentos de crisis, incertidumbre o noticias dificiles.',
+    text: 'Técnicas breves para momentos de crisis, incertidumbre o noticias difíciles.',
   },
 ];
 
@@ -69,16 +67,16 @@ export const communityTopics = [
   {
     title: 'Historias de apoyo',
     icon: MessageCircleHeart,
-    text: 'Mensajes y comentarios para crear una red de acompanamiento humano.',
+    text: 'Mensajes y comentarios para crear una red de acompañamiento humano.',
   },
   {
     title: 'Familias y cuidadores',
     icon: UsersRound,
-    text: 'Espacio para dudas frecuentes sobre cuidado, comunicacion y descanso.',
+    text: 'Espacio para dudas frecuentes sobre cuidado, comunicación y descanso.',
   },
   {
     title: 'Bienestar diario',
     icon: ShieldCheck,
-    text: 'Habitos pequenos que pueden sostener la salud mental durante el tratamiento.',
+    text: 'Hábitos pequeños que pueden sostener la salud mental durante el tratamiento.',
   },
 ];

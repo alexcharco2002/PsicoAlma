@@ -4,6 +4,10 @@
   color: var(--color-on-surface);
 }
 
+.app-shell p {
+  text-align: justify;
+}
+
 .page-section {
   width: min(100% - 80px, 1200px);
   margin-inline: auto;

@@ -88,11 +88,20 @@
 }
 
 .prevention-overview article {
-  padding: 24px;
+  display: grid;
+  align-content: start;
+  min-height: 270px;
+  padding: 26px;
   border: 1px solid var(--color-outline-variant);
   border-radius: 22px;
-  background: var(--color-surface-container-lowest);
+  background: linear-gradient(180deg, var(--color-surface-container-lowest) 0%, var(--color-surface-container-low) 100%);
   box-shadow: 0 14px 34px rgb(7 30 39 / 6%);
+}
+
+.prevention-overview__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .prevention-overview svg {
@@ -100,16 +109,39 @@
 }
 
 .prevention-overview h2 {
-  margin: 16px 0 10px;
+  margin: 0;
   color: #061e2b;
   font-size: 1.22rem;
 }
 
 .prevention-overview p {
-  margin: 0;
+  margin: 18px 0 0;
   color: var(--color-on-surface-variant);
   font-size: 1rem;
   line-height: 1.65;
+}
+
+.prevention-overview ul {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prevention-overview li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-on-surface-variant);
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.prevention-overview li svg {
+  flex: 0 0 auto;
+  color: var(--color-secondary);
 }
 
 .prevention-tips {

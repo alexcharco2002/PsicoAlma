@@ -24,6 +24,12 @@
   cursor: pointer;
 }
 
+.footer-brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
 .site-footer__copy,
 .site-footer__line {
   color: var(--color-on-surface-variant);

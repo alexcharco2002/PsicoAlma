@@ -12,7 +12,7 @@ const specialists = [
     rating: '4.9',
     image: '/images/specialists/elena-martinez.jpg',
     fallback: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85',
-    description: 'Especialista en ansiedad, gestion emocional y acompanamiento durante tratamientos prolongados.',
+    description: 'Especialista en ansiedad, gestión emocional y acompañamiento durante tratamientos prolongados.',
   },
   {
     name: 'Lic. Carlos Ruiz',
@@ -39,7 +39,7 @@ const specialists = [
     rating: '4.7',
     image: '/images/specialists/javier-soto.jpg',
     fallback: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=85',
-    description: 'Apoyo psicologico inicial para momentos de miedo intenso, noticias dificiles o agotamiento emocional.',
+    description: 'Apoyo psicológico inicial para momentos de miedo intenso, noticias difíciles o agotamiento emocional.',
   },
 ];
 
@@ -66,10 +66,10 @@ function ContactPage({ onNavigate }) {
         </div>
 
         <div className="contact-intro">
-          <h2>Como podemos ayudarte</h2>
+          <h2>Cómo podemos ayudarte</h2>
           <p>
-            Este espacio reune opciones de contacto para pacientes, familiares y cuidadores que necesitan orientacion
-            psicologica, acompanamiento emocional o una primera recomendacion antes de iniciar un proceso.
+            Este espacio reúne opciones de contacto para pacientes, familiares y cuidadores que necesitan orientación
+            psicológica, acompañamiento emocional o una primera recomendación antes de iniciar un proceso.
           </p>
           <div className="contact-intro__actions">
             <a href="mailto:contacto@psicoalma.org">
@@ -88,17 +88,17 @@ function ContactPage({ onNavigate }) {
         <article>
           <Mail size={26} />
           <h2>Correo general</h2>
-          <p>Ideal para consultas, solicitudes de informacion o seguimiento de evaluaciones registradas.</p>
+          <p>Ideal para consultas, solicitudes de información o seguimiento de evaluaciones registradas.</p>
         </article>
         <article>
           <Phone size={26} />
           <h2>Atencion directa</h2>
-          <p>Canal pensado para coordinar una orientacion inicial y revisar disponibilidad del equipo.</p>
+          <p>Canal pensado para coordinar una orientación inicial y revisar disponibilidad del equipo.</p>
         </article>
         <article>
           <ShieldCheck size={26} />
           <h2>Privacidad</h2>
-          <p>La informacion compartida se trata con cuidado, respeto y enfoque humano.</p>
+          <p>La información compartida se trata con cuidado, respeto y enfoque humano.</p>
         </article>
       </section>
 
@@ -156,13 +156,13 @@ function ContactPage({ onNavigate }) {
       <section className="contact-help page-section">
         <AlertCircle size={24} />
         <div>
-          <h2>Necesitas ayuda para elegir?</h2>
+          <h2>¿Necesitas ayuda para elegir?</h2>
           <p>
-            Realiza nuestra evaluacion rapida para que podamos orientarte sobre el tipo de acompanamiento mas adecuado
+            Realiza nuestra evaluación rápida para que podamos orientarte sobre el tipo de acompañamiento más adecuado
             segun tus necesidades actuales.
           </p>
           <button type="button" onClick={() => onNavigate('evaluacion')}>
-            Comenzar evaluacion
+            Comenzar evaluación
             <ArrowRight size={18} />
           </button>
         </div>

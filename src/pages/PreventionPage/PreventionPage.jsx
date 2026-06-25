@@ -12,11 +12,11 @@ const preventionTips = [
   },
   {
     title: 'Hablar con alguien seguro',
-    text: 'Compartir lo que se siente con una persona de confianza reduce el aislamiento y mejora la sensacion de acompanamiento.',
+    text: 'Compartir lo que se siente con una persona de confianza reduce el aislamiento y mejora la sensación de acompañamiento.',
   },
   {
     title: 'Pedir ayuda profesional',
-    text: 'Buscar apoyo psicologico no significa debilidad; es una forma de cuidar la salud mental y tomar mejores decisiones.',
+    text: 'Buscar apoyo psicológico no significa debilidad; es una forma de cuidar la salud mental y tomar mejores decisiones.',
   },
 ];
 
@@ -28,6 +28,27 @@ const warningSigns = [
   'Pensamientos de desesperanza o de no querer continuar.',
 ];
 
+const preventionOverview = [
+  {
+    title: 'Detectar a tiempo',
+    icon: HeartPulse,
+    text: 'Observar cambios emocionales permite buscar apoyo antes de que el malestar se vuelva más intenso o difícil de manejar.',
+    points: ['Cambios de ánimo', 'Señales de ansiedad', 'Cansancio emocional'],
+  },
+  {
+    title: 'Activar la red',
+    icon: UsersRound,
+    text: 'La familia, amistades y profesionales pueden ayudar a distribuir responsabilidades y sostener el acompañamiento diario.',
+    points: ['Pedir ayuda concreta', 'Organizar tareas', 'Evitar el aislamiento'],
+  },
+  {
+    title: 'Cuidar el descanso',
+    icon: Moon,
+    text: 'El sueño, las pausas y las rutinas simples ayudan a recuperar energía emocional durante el proceso de enfermedad.',
+    points: ['Pausas breves', 'Rutinas de sueño', 'Espacios de calma'],
+  },
+];
+
 function PreventionPage({ onNavigate }) {
   return (
     <div className="prevention-page">
@@ -35,41 +56,46 @@ function PreventionPage({ onNavigate }) {
         <div className="prevention-hero__heading">
           <div className="prevention-hero__label">
             <ShieldCheck size={20} />
-            Prevencion psicologica
+            Prevención psicológica
           </div>
-          <h1>Cuidar la mente tambien es parte del tratamiento</h1>
+          <h1>Cuidar la mente también es parte del tratamiento</h1>
         </div>
 
         <div className="prevention-intro">
-          <h2>Que se va a tratar aqui</h2>
+          <h2>Qué se va a tratar aquí</h2>
           <p>
-            La prevencion psicologica permite reconocer senales emocionales antes de que se vuelvan mas dificiles de
-            manejar. En esta pagina encontraras consejos, alertas y acciones sencillas para pacientes, familiares y
+            La prevención psicológica permite reconocer señales emocionales antes de que se vuelvan más difíciles de
+            manejar. En esta página encontrarás consejos, alertas y acciones sencillas para pacientes, familiares y
             cuidadores.
           </p>
           <button type="button" className="prevention-intro__button" onClick={() => onNavigate('evaluacion')}>
-            Hacer evaluacion rapida
+            Hacer evaluación rápida
             <ArrowRight size={18} />
           </button>
         </div>
       </section>
 
-      <section className="prevention-overview page-section" aria-label="Pilares de prevencion">
-        <article>
-          <HeartPulse size={26} />
-          <h2>Detectar a tiempo</h2>
-          <p>Observar cambios emocionales permite buscar apoyo antes de llegar a una crisis.</p>
-        </article>
-        <article>
-          <UsersRound size={26} />
-          <h2>Activar la red</h2>
-          <p>Familia, amigos y profesionales pueden ayudar a distribuir cargas y acompanamiento.</p>
-        </article>
-        <article>
-          <Moon size={26} />
-          <h2>Cuidar el descanso</h2>
-          <p>El sueno y las pausas son parte esencial del bienestar emocional.</p>
-        </article>
+      <section className="prevention-overview page-section" aria-label="Pilares de prevención">
+        {preventionOverview.map((card) => {
+          const Icon = card.icon;
+          return (
+            <article key={card.title}>
+              <div className="prevention-overview__top">
+                <Icon size={26} />
+                <h2>{card.title}</h2>
+              </div>
+              <p>{card.text}</p>
+              <ul>
+                {card.points.map((point) => (
+                  <li key={point}>
+                    <SmilePlus size={17} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
       </section>
 
       <section className="prevention-tips page-section" aria-labelledby="prevention-tips-title">
@@ -93,9 +119,9 @@ function PreventionPage({ onNavigate }) {
         <div className="prevention-warning__content">
           <div>
             <AlertTriangle size={28} />
-            <h2 id="warning-title">Senales de alerta emocional</h2>
+            <h2 id="warning-title">Señales de alerta emocional</h2>
             <p>
-              Si una o varias de estas senales aparecen con intensidad o duran varios dias, es recomendable buscar apoyo
+              Si una o varias de estas señales aparecen con intensidad o duran varios días, es recomendable buscar apoyo
               profesional o contactar a una persona de confianza.
             </p>
           </div>
@@ -113,9 +139,9 @@ function PreventionPage({ onNavigate }) {
       <section className="prevention-note page-section">
         <ShieldCheck size={24} />
         <div>
-          <h2>La prevencion tambien acompana a la familia</h2>
+          <h2>La prevención también acompaña a la familia</h2>
           <p>
-            Los cuidadores tambien necesitan descanso, escucha y orientacion. Cuidar a quien cuida evita agotamiento y
+            Los cuidadores también necesitan descanso, escucha y orientación. Cuidar a quien cuida evita agotamiento y
             fortalece el apoyo al paciente.
           </p>
           <button type="button" onClick={() => onNavigate('contacto')}>

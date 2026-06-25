@@ -10,7 +10,7 @@ function ResourcesPage() {
           <p className="section-kicker">Recursos</p>
           <h1 className="section-title">Biblioteca para pacientes y cuidadores</h1>
           <p className="section-copy">
-            Contenido sencillo para orientar momentos dificiles, preparar conversaciones y reconocer senales de alerta.
+            Contenido sencillo para orientar momentos difíciles, preparar conversaciones y reconocer señales de alerta.
           </p>
         </div>
 

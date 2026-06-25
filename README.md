@@ -1,6 +1,6 @@
 # PsicoAlma
 
-PsicoAlma es una pagina web de apoyo psicologico para personas con enfermedades catastroficas, sus familias y cuidadores.
+PsicoAlma es una página web de apoyo psicológico para personas con enfermedades catastróficas, sus familias y cuidadores.
 
 El proyecto esta construido como una aplicacion frontend desplegable en Vercel, sin backend. La seccion de comentarios usa `localStorage` como una mini base de datos local para pruebas y prototipado.
 
@@ -9,7 +9,7 @@ El proyecto esta construido como una aplicacion frontend desplegable en Vercel, 
 - React
 - Vite
 - Tailwind CSS
-- CSS modular por pagina
+- CSS modular por página
 - Lucide React para iconos
 - localStorage para comentarios locales
 
@@ -77,14 +77,14 @@ src/
 
 ## Paginas actuales
 
-- Inicio: pagina principal con hero, llamada a la accion y resumen de servicios.
-- Cuidados: evaluacion, diagnostico, tratamiento, prevencion y promocion.
-- Evaluacion: formulario por pasos para orientacion emocional inicial.
-- Enfermedades: introduccion y principales enfermedades catastroficas.
+- Inicio: página principal con hero, llamada a la acción y resumen de servicios.
+- Servicios: evaluación, diagnóstico, tratamiento, prevención y promoción.
+- Evaluación: formulario por pasos para orientación emocional inicial.
+- Enfermedades: introducción y principales enfermedades catastróficas.
 - Recursos: biblioteca de apoyo para pacientes, familias y cuidadores.
 - Comunidad: comentarios guardados localmente en el navegador.
 
-## Como agregar una nueva pestaña
+## Cómo agregar una nueva pestaña
 
 1. Crear una carpeta dentro de `src/pages`.
 
@@ -94,7 +94,7 @@ src/pages/NuevaPage/
   NuevaPage.css
 ```
 
-2. Importar la nueva pagina en `src/routes/pageRegistry.js`.
+2. Importar la nueva página en `src/routes/pageRegistry.js`.
 
 3. Registrar el componente en `pageRegistry`.
 
@@ -123,7 +123,7 @@ Las imagenes publicas van en:
 public/images/
 ```
 
-La portada visual de la pagina de bienvenida usa:
+La portada visual de la página de bienvenida usa:
 
 ```text
 public/images/bienvenida-video.jpg
@@ -135,7 +135,7 @@ La seccion de comunidad en Inicio usa:
 public/images/comunidad-cuidado.jpg
 ```
 
-La pagina de enfermedades usa imagenes en:
+La página de enfermedades usa imágenes en:
 
 ```text
 public/images/diseases/
