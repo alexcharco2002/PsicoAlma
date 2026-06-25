@@ -1,0 +1,88 @@
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.page-section {
+  width: min(100% - 80px, 1200px);
+  margin-inline: auto;
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--color-on-surface);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.section-copy {
+  margin: 16px 0 0;
+  color: var(--color-on-surface-variant);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.primary-button {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 16px 30px rgb(0 93 172 / 18%);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px rgb(0 93 172 / 22%);
+}
+
+.secondary-button {
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.secondary-button:hover,
+.ghost-button:hover {
+  background: var(--color-primary-fixed);
+}
+
+.ghost-button {
+  border: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
+}
+
+@media (max-width: 760px) {
+  .page-section {
+    width: min(100% - 32px, 1200px);
+  }
+}
