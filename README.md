@@ -51,6 +51,8 @@ npm run preview
 ## Estructura principal
 
 ```text
+public/
+  images/
 src/
   components/
     Header/
@@ -108,3 +110,17 @@ Install Command: npm install
 ## Nota sobre comentarios
 
 Actualmente los comentarios se guardan solo en el navegador del usuario usando `localStorage`. Si se necesitan comentarios reales compartidos entre usuarios, se recomienda integrar una solucion como Supabase o Firebase.
+
+## Imagenes
+
+Las imagenes publicas van en:
+
+```text
+public/images/
+```
+
+La portada visual de la pagina de bienvenida usa:
+
+```text
+public/images/bienvenida-video.jpg
+```
