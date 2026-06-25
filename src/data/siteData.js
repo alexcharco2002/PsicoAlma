@@ -10,10 +10,10 @@ import {
 } from 'lucide-react';
 
 export const navigation = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'cuidados', label: 'Cuidados' },
-  { id: 'recursos', label: 'Recursos' },
-  { id: 'comunidad', label: 'Comunidad' },
+  { id: 'inicio', label: 'Inicio', path: '/' },
+  { id: 'cuidados', label: 'Cuidados', path: '/cuidados' },
+  { id: 'recursos', label: 'Recursos', path: '/recursos' },
+  { id: 'comunidad', label: 'Comunidad', path: '/comunidad' },
 ];
 
 export const careServices = [

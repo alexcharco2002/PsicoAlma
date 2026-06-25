@@ -9,7 +9,6 @@ function Header({ activePage, onNavigate }) {
   const navigate = (page) => {
     onNavigate(page);
     setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

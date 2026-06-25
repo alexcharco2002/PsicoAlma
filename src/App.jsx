@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import { defaultPageId, getPageComponent } from './routes/pageRegistry';
+import { getPageComponent, getPageIdFromPath, getPathForPage } from './routes/pageRegistry';
 import './App.css';
 
 const storageKey = 'psicoalma-comments';
@@ -16,8 +16,22 @@ const initialComments = [
 ];
 
 function App() {
-  const [activePage, setActivePage] = useState(defaultPageId);
+  const [activePage, setActivePage] = useState(() => getPageIdFromPath(window.location.pathname));
   const [comments, setComments] = useState(initialComments);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const cleanPath = getPathForPage(getPageIdFromPath(window.location.pathname));
+      window.history.replaceState({}, '', cleanPath);
+    }
+
+    const syncPageWithPath = () => {
+      setActivePage(getPageIdFromPath(window.location.pathname));
+    };
+
+    window.addEventListener('popstate', syncPageWithPath);
+    return () => window.removeEventListener('popstate', syncPageWithPath);
+  }, []);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(storageKey);
@@ -45,13 +59,24 @@ function App() {
     setComments((current) => current.filter((comment) => comment.id !== id));
   };
 
+  const navigateToPage = (pageId) => {
+    const nextPath = getPathForPage(pageId);
+    setActivePage(pageId);
+
+    if (window.location.pathname !== nextPath || window.location.hash) {
+      window.history.pushState({}, '', nextPath);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const Page = getPageComponent(activePage);
 
   return (
     <main className="app-shell">
-      <Header activePage={activePage} onNavigate={setActivePage} />
-      <Page comments={comments} addComment={addComment} removeComment={removeComment} onNavigate={setActivePage} />
-      <Footer onNavigate={setActivePage} />
+      <Header activePage={activePage} onNavigate={navigateToPage} />
+      <Page comments={comments} addComment={addComment} removeComment={removeComment} onNavigate={navigateToPage} />
+      <Footer onNavigate={navigateToPage} />
     </main>
   );
 }
