@@ -104,6 +104,20 @@
   display: none;
 }
 
+@media (max-width: 1040px) {
+  .site-nav {
+    gap: 22px;
+  }
+
+  .brand {
+    font-size: 1.35rem;
+  }
+
+  .help-button {
+    min-width: 124px;
+  }
+}
+
 @media (max-width: 880px) {
   .site-header__inner {
     width: min(100% - 32px, 1200px);
@@ -123,7 +137,7 @@
     gap: 8px;
     width: min(100% - 32px, 1200px);
     margin: 0 auto;
-    padding: 0 0 16px;
+    padding: 0 0 18px;
   }
 
   .mobile-nav__link {
@@ -137,5 +151,51 @@
 
   .mobile-nav__link--active {
     color: var(--color-primary);
+  }
+
+  .mobile-nav__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .mobile-nav__account,
+  .mobile-nav__help {
+    min-height: 44px;
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .mobile-nav__account {
+    background: var(--color-surface-container-lowest);
+    color: var(--color-on-surface-variant);
+  }
+
+  .mobile-nav__help {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header__inner {
+    height: 64px;
+  }
+
+  .brand {
+    font-size: 1.18rem;
+  }
+
+  .brand__mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mobile-nav__actions {
+    grid-template-columns: 1fr;
   }
 }

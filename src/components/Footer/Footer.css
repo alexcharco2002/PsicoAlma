@@ -95,7 +95,12 @@
 }
 
 @media (max-width: 580px) {
+  .site-footer {
+    padding-top: 54px;
+  }
+
   .site-footer__grid {
     grid-template-columns: 1fr;
+    gap: 34px;
   }
 }

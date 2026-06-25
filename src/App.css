@@ -85,4 +85,21 @@
   .page-section {
     width: min(100% - 32px, 1200px);
   }
+
+  .section-title {
+    font-size: clamp(1.9rem, 9vw, 2.65rem);
+  }
+
+  .primary-button,
+  .secondary-button,
+  .ghost-button {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 390px) {
+  .page-section {
+    width: min(100% - 24px, 1200px);
+  }
 }

@@ -44,7 +44,13 @@ function Header({ activePage, onNavigate }) {
           </button>
         </div>
 
-        <button type="button" className="menu-button" aria-label="Abrir menu" onClick={() => setIsOpen((open) => !open)}>
+        <button
+          type="button"
+          className="menu-button"
+          aria-label="Abrir menu"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((open) => !open)}
+        >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
@@ -61,6 +67,14 @@ function Header({ activePage, onNavigate }) {
               {item.label}
             </button>
           ))}
+          <div className="mobile-nav__actions">
+            <button type="button" className="mobile-nav__account" onClick={() => navigate('comunidad')}>
+              Mi Cuenta
+            </button>
+            <button type="button" className="mobile-nav__help" onClick={() => navigate('cuidados')}>
+              Pedir Ayuda
+            </button>
+          </div>
         </nav>
       )}
     </header>

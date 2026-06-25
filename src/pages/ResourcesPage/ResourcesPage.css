@@ -89,8 +89,30 @@
 }
 
 @media (max-width: 900px) {
-  .resources-hero,
+  .resources-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .resources-page {
+    padding-top: 58px;
+  }
+
+  .resources-hero {
+    padding-top: 34px;
+  }
+
   .resource-grid {
     grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    min-height: auto;
+    padding: 26px;
   }
 }

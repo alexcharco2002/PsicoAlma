@@ -127,3 +127,38 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 560px) {
+  .care-page {
+    padding-top: 58px;
+  }
+
+  .care-hero {
+    padding-top: 34px;
+  }
+
+  .care-card {
+    min-height: auto;
+    padding: 26px;
+    border-radius: 22px;
+  }
+
+  .care-card__number {
+    top: 20px;
+    right: 22px;
+    font-size: 2.55rem;
+  }
+
+  .care-card h2 {
+    padding-right: 52px;
+    font-size: 1.35rem;
+  }
+
+  .care-card li {
+    align-items: flex-start;
+  }
+
+  .care-alert {
+    padding: 24px;
+  }
+}

@@ -169,3 +169,32 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 640px) {
+  .community-page {
+    padding-top: 58px;
+  }
+
+  .community-hero {
+    padding-top: 34px;
+  }
+
+  .community-topics article,
+  .comment-form,
+  .comment-card {
+    border-radius: 20px;
+  }
+
+  .comment-form {
+    padding: 24px;
+  }
+
+  .comment-card {
+    padding: 22px;
+  }
+
+  .comment-card button {
+    position: static;
+    margin-top: 16px;
+  }
+}

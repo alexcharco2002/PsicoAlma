@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import HomePage from './pages/HomePage/HomePage';
-import CarePage from './pages/CarePage/CarePage';
-import ResourcesPage from './pages/ResourcesPage/ResourcesPage';
-import CommunityPage from './pages/CommunityPage/CommunityPage';
+import { defaultPageId, getPageComponent } from './routes/pageRegistry';
 import './App.css';
 
 const storageKey = 'psicoalma-comments';
@@ -18,15 +15,8 @@ const initialComments = [
   },
 ];
 
-const pageMap = {
-  inicio: HomePage,
-  cuidados: CarePage,
-  recursos: ResourcesPage,
-  comunidad: CommunityPage,
-};
-
 function App() {
-  const [activePage, setActivePage] = useState('inicio');
+  const [activePage, setActivePage] = useState(defaultPageId);
   const [comments, setComments] = useState(initialComments);
 
   useEffect(() => {
@@ -55,7 +45,7 @@ function App() {
     setComments((current) => current.filter((comment) => comment.id !== id));
   };
 
-  const Page = pageMap[activePage] ?? HomePage;
+  const Page = getPageComponent(activePage);
 
   return (
     <main className="app-shell">
