@@ -1,4 +1,4 @@
-import { Heart, ShieldCheck } from 'lucide-react';
+import { Heart, Quote, ShieldCheck, Star } from 'lucide-react';
 import { careServices } from '../../data/siteData';
 import './HomePage.css';
 
@@ -88,6 +88,56 @@ function HomePage({ comments, onNavigate }) {
         <div className="home-note">
           <strong>{comments.length} comentarios guardados</strong>
           <span>La comunidad se trabaja en una pagina separada para mantener el proyecto ordenado.</span>
+        </div>
+      </section>
+
+      <section className="home-community page-section" aria-label="Comunidad y confianza">
+        <article className="community-feature">
+          <div className="community-feature__copy">
+            <h2>Comunidad de Cuidado</h2>
+            <p>Conecta con otras personas que comparten experiencias similares en un entorno seguro y moderado las 24 horas.</p>
+            <div className="community-feature__tags">
+              <span>#ForosActivos</span>
+              <span>#GruposDuelo</span>
+            </div>
+          </div>
+          <img
+            src="/images/comunidad-cuidado.jpg"
+            alt="Espacio tranquilo de acompanamiento y cuidado"
+            onError={(event) => {
+              event.currentTarget.src = 'https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=85';
+            }}
+          />
+        </article>
+
+        <article className="rating-card">
+          <Star size={34} fill="currentColor" />
+          <strong>4.9/5</strong>
+          <span>Satisfaccion de nuestra red</span>
+          <p>"Me cambio la forma de ver mi labor como hija y cuidadora."</p>
+        </article>
+      </section>
+
+      <section className="home-quote page-section">
+        <Quote size={46} fill="currentColor" />
+        <blockquote>
+          "El cuidado no es solo una tarea, es un acto de valentia y amor que merece ser sostenido por una red de apoyo."
+        </blockquote>
+        <cite>Equipo PsicoAlma</cite>
+      </section>
+
+      <section className="home-cta page-section">
+        <div className="home-cta__content">
+          <h2>¿Listo para sentirte acompañado?</h2>
+          <p>Unete a personas que han encontrado un refugio y herramientas practicas en nuestra plataforma.</p>
+          <div className="home-cta__actions">
+            <button type="button" onClick={() => onNavigate('comunidad')}>
+              Crear cuenta gratuita
+            </button>
+            <button type="button" onClick={() => onNavigate('cuidados')}>
+              Hablar con un asesor
+            </button>
+          </div>
         </div>
       </section>
     </div>

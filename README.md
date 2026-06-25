@@ -127,6 +127,12 @@ La portada visual de la pagina de bienvenida usa:
 public/images/bienvenida-video.jpg
 ```
 
+La seccion de comunidad en Inicio usa:
+
+```text
+public/images/comunidad-cuidado.jpg
+```
+
 La pagina de enfermedades usa imagenes en:
 
 ```text

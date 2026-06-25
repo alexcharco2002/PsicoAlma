@@ -10,6 +10,12 @@ public/images/bienvenida-video.jpg
 
 Esa imagen se mostrara en la primera pagina como portada del video introductorio.
 
+Para la seccion de comunidad en la pagina principal, agrega:
+
+```text
+public/images/comunidad-cuidado.jpg
+```
+
 Tambien puedes agregar futuras imagenes con nombres descriptivos, por ejemplo:
 
 ```text
