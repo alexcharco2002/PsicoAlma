@@ -19,6 +19,17 @@ public/images/tratamiento.jpg
 public/images/prevencion.jpg
 ```
 
+Para la pagina de enfermedades, coloca las imagenes en:
+
+```text
+public/images/diseases/cancer.jpg
+public/images/diseases/insuficiencia-renal.jpg
+public/images/diseases/cardiovascular.jpg
+public/images/diseases/neurologica.jpg
+public/images/diseases/vih-sida.jpg
+public/images/diseases/enfermedades-raras.jpg
+```
+
 En React/Vite se usan asi:
 
 ```jsx

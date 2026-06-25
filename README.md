@@ -62,6 +62,7 @@ src/
   pages/
     HomePage/
     CarePage/
+    DiseasesPage/
     ResourcesPage/
     CommunityPage/
     README.md
@@ -77,6 +78,7 @@ src/
 
 - Inicio: pagina principal con hero, llamada a la accion y resumen de cuidados.
 - Cuidados: evaluacion, diagnostico, tratamiento, prevencion y promocion.
+- Enfermedades: introduccion y principales enfermedades catastroficas.
 - Recursos: biblioteca de apoyo para pacientes, familias y cuidadores.
 - Comunidad: comentarios guardados localmente en el navegador.
 
@@ -123,4 +125,10 @@ La portada visual de la pagina de bienvenida usa:
 
 ```text
 public/images/bienvenida-video.jpg
+```
+
+La pagina de enfermedades usa imagenes en:
+
+```text
+public/images/diseases/
 ```

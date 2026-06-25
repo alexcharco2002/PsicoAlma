@@ -2,6 +2,14 @@
 
 Cada pestaña vive en su propia carpeta para que el proyecto pueda crecer sin mezclar estilos ni lógica.
 
+Pestañas actuales:
+
+- `HomePage`: bienvenida.
+- `CarePage`: ruta de cuidado psicologico.
+- `DiseasesPage`: enfermedades catastroficas.
+- `ResourcesPage`: recursos educativos.
+- `CommunityPage`: comentarios y comunidad.
+
 Estructura recomendada para un nuevo módulo:
 
 ```text
