@@ -1,9 +1,9 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useState } from 'react';
 import { navigation } from '../../data/siteData';
 import './Header.css';
 
-function Header({ activePage, onNavigate }) {
+function Header({ activePage, isDarkMode, onNavigate, onToggleDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigate = (page) => {
@@ -38,6 +38,14 @@ function Header({ activePage, onNavigate }) {
           <button type="button" className="help-button" onClick={() => navigate('contacto')}>
             Contactos
           </button>
+          <button
+            type="button"
+            className={isDarkMode ? 'theme-button theme-button--active' : 'theme-button'}
+            onClick={onToggleDarkMode}
+            aria-label={isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+          >
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
 
         <button
@@ -66,6 +74,14 @@ function Header({ activePage, onNavigate }) {
           <div className="mobile-nav__actions">
             <button type="button" className="mobile-nav__help" onClick={() => navigate('contacto')}>
               Contactos
+            </button>
+            <button
+              type="button"
+              className="mobile-nav__theme"
+              onClick={onToggleDarkMode}
+            >
+              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+              {isDarkMode ? 'Modo claro' : 'Modo oscuro'}
             </button>
           </div>
         </nav>

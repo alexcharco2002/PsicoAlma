@@ -16,7 +16,7 @@ const overviewCards = [
   {
     title: 'Comprender emociones',
     icon: Brain,
-    text: 'Se trabaja lo que la persona siente, cómo lo interpreta y de qué manera influye en su vida diaria.',
+    text: 'Se acompaña lo que la persona siente, cómo lo interpreta y de qué manera influye en su vida diaria.',
     points: ['Miedo e incertidumbre', 'Tristeza y enojo', 'Cambios de identidad'],
   },
   {
@@ -28,15 +28,42 @@ const overviewCards = [
   {
     title: 'Incluir la red',
     icon: UsersRound,
-    text: 'La familia y cuidadores pueden participar para mejorar comunicacion, apoyo y descanso.',
+    text: 'La familia y cuidadores pueden participar para mejorar comunicación, apoyo y descanso.',
     points: ['Acuerdos familiares', 'Cuidado del cuidador', 'Comunicación con respeto'],
+  },
+];
+
+const guidanceCards = [
+  {
+    title: '¿Cuándo iniciar terapia?',
+    icon: AlertCircle,
+    text: 'Cuando el malestar se vuelve frecuente, interfiere con el sueño, las decisiones, el tratamiento, las relaciones o la esperanza cotidiana.',
+    points: ['Ansiedad o tristeza persistente', 'Aislamiento o irritabilidad', 'Dificultad para afrontar noticias médicas'],
+  },
+  {
+    title: '¿Qué esperar en la primera sesión?',
+    icon: MessageCircle,
+    text: 'La primera sesión suele servir para conocer la situación, escuchar necesidades, definir objetivos y explicar cómo será el acompañamiento.',
+    points: ['No hay obligación de contar todo', 'Se acuerdan prioridades', 'Se explica la confidencialidad'],
+  },
+  {
+    title: 'Apoyo, terapia y crisis',
+    icon: ShieldCheck,
+    text: 'El apoyo orienta y contiene; la terapia trabaja objetivos sostenidos; la intervención en crisis prioriza seguridad y estabilización inmediata.',
+    points: ['Apoyo: orientación inicial', 'Terapia: proceso continuo', 'Crisis: atención urgente'],
+  },
+  {
+    title: 'Persona, cuidador y familia',
+    icon: HeartHandshake,
+    text: 'La persona puede necesitar adaptación emocional; el cuidador, descanso y límites; la familia, comunicación y acuerdos de cuidado.',
+    points: ['Persona: afrontamiento', 'Cuidador: autocuidado', 'Familia: organización y diálogo'],
   },
 ];
 
 const treatments = [
   {
     title: 'Psicoterapia individual',
-    text: 'Espacio personal para expresar emociones, trabajar miedo, tristeza, ansiedad y adaptación al diagnóstico o tratamiento médico.',
+    text: 'Espacio personal para expresar emociones, trabajar miedo, tristeza, ansiedad y adaptación al proceso de salud.',
     details: {
       goal:
         'Busca ofrecer un espacio seguro para hablar de lo que ocurre, comprender reacciones emocionales y construir formas de afrontamiento acordes a la historia de cada persona.',
@@ -57,29 +84,29 @@ const treatments = [
     },
   },
   {
-    title: 'Acompanamiento en duelo',
-    text: 'Apoyo para procesar perdidas, cambios de vida, incertidumbre o despedidas simbolicas dentro del proceso de enfermedad.',
+    title: 'Acompañamiento en duelo',
+    text: 'Apoyo para procesar pérdidas, cambios de vida, incertidumbre o despedidas simbólicas dentro del proceso de enfermedad.',
     details: {
       goal:
-        'Acompana perdidas reales o simbolicas: salud, independencia, proyectos, imagen corporal o seres queridos. No busca acelerar el duelo, sino sostenerlo con cuidado.',
+        'Acompaña pérdidas reales o simbólicas: salud, independencia, proyectos, imagen corporal o seres queridos. No busca acelerar el duelo, sino sostenerlo con cuidado.',
       usefulFor:
         'Puede ayudar cuando hay dolor persistente, culpa, enojo, dificultad para aceptar cambios o necesidad de despedirse de etapas de vida que ya no son iguales.',
-      work: ['Validacion del dolor y la perdida', 'Trabajo con culpa o enojo', 'Rituales de despedida y memoria', 'Reconstruccion de sentido y apoyo'],
+      work: ['Validación del dolor y la pérdida', 'Trabajo con culpa o enojo', 'Rituales de despedida y memoria', 'Reconstrucción de sentido y apoyo'],
     },
   },
   {
     title: 'Terapia familiar',
-    text: 'Fortalece la comunicación, distribución de responsabilidades y apoyo emocional entre paciente, familia y cuidadores.',
+    text: 'Fortalece la comunicación, distribución de responsabilidades y apoyo emocional entre la persona, familia y cuidadores.',
     details: {
       goal:
-        'Ayuda a que la familia entienda el proceso, mejore la comunicacion y distribuya responsabilidades sin cargar todo sobre una sola persona.',
+        'Ayuda a que la familia entienda el proceso, mejore la comunicación y distribuya responsabilidades sin cargar todo sobre una sola persona.',
       usefulFor:
         'Es especialmente útil cuando existen conflictos, silencios, sobreprotección, agotamiento del cuidador o dificultad para hablar sobre decisiones médicas y emocionales.',
-      work: ['Mapeo de roles familiares', 'Acuerdos de cuidado y descanso', 'Comunicacion clara y respetuosa', 'Apoyo al cuidador principal'],
+      work: ['Mapeo de roles familiares', 'Acuerdos de cuidado y descanso', 'Comunicación clara y respetuosa', 'Apoyo al cuidador principal'],
     },
   },
   {
-    title: 'Intervencion en crisis',
+    title: 'Intervención en crisis',
     text: 'Atención breve para momentos de ansiedad intensa, noticias médicas difíciles, desbordamiento emocional o sensación de no poder continuar.',
     details: {
       goal:
@@ -90,11 +117,11 @@ const treatments = [
     },
   },
   {
-    title: 'Psicoeducacion',
+    title: 'Psicoeducación',
     text: 'Brinda información clara sobre emociones, autocuidado, señales de alerta y recursos para vivir el proceso con mayor comprensión.',
     details: {
       goal:
-        'Entrega información comprensible para que paciente, familia o cuidadores entiendan reacciones emocionales normales, señales de alerta y formas de pedir ayuda.',
+        'Entrega información comprensible para que la persona, la familia o los cuidadores entiendan reacciones emocionales normales, señales de alerta y formas de pedir ayuda.',
       usefulFor:
         'Es útil al inicio del diagnóstico, durante tratamientos prolongados o cuando la familia necesita comprender cómo apoyar sin invalidar ni sobrecargar.',
       work: ['Explicación de emociones frecuentes', 'Señales de alerta emocional', 'Herramientas de autocuidado', 'Orientación para pedir apoyo profesional'],
@@ -106,7 +133,7 @@ const processSteps = [
   'Escucha inicial y reconocimiento de necesidades.',
   'Identificación del estado emocional y red de apoyo.',
   'Definición de objetivos terapéuticos realistas.',
-  'Acompanamiento, seguimiento y ajustes segun el proceso.',
+  'Acompañamiento, seguimiento y ajustes según el proceso.',
 ];
 
 function TreatmentPage({ onNavigate }) {
@@ -118,20 +145,20 @@ function TreatmentPage({ onNavigate }) {
         <div className="treatment-hero__heading">
           <div className="treatment-hero__label">
             <HeartHandshake size={20} />
-            Tratamiento psicológico
+            Acompañamiento emocional
           </div>
           <h1>Formas de apoyo para afrontar el proceso emocional</h1>
         </div>
 
         <div className="treatment-intro">
-          <h2>Qué se trabaja aquí</h2>
+          <h2>Cómo puede ayudarte este espacio</h2>
           <p>
             El tratamiento psicológico busca acompañar a la persona y su entorno en momentos de miedo, incertidumbre,
             duelo, cansancio emocional o cambios importantes en la vida diaria. Cada proceso debe adaptarse a las
-            necesidades del paciente, familia o cuidador.
+            necesidades de la persona, familia o cuidador.
           </p>
           <button type="button" className="treatment-intro__button" onClick={() => onNavigate('evaluacion')}>
-            Empezar evaluación
+            Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
         </div>
@@ -160,10 +187,40 @@ function TreatmentPage({ onNavigate }) {
         })}
       </section>
 
+      <section className="treatment-guidance page-section" aria-labelledby="treatment-guidance-title">
+        <div className="treatment-guidance__heading">
+          <p className="section-kicker">Antes de iniciar</p>
+          <h2 id="treatment-guidance-title">Dudas frecuentes antes de recibir acompañamiento</h2>
+        </div>
+
+        <div className="treatment-guidance__grid">
+          {guidanceCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <article key={card.title}>
+                <div className="treatment-guidance__top">
+                  <Icon size={24} />
+                  <h3>{card.title}</h3>
+                </div>
+                <p>{card.text}</p>
+                <ul>
+                  {card.points.map((point) => (
+                    <li key={point}>
+                      <CheckCircle2 size={17} />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <section className="treatment-list page-section" aria-labelledby="treatment-title">
         <div className="treatment-list__heading">
-          <p className="section-kicker">Atencion principal</p>
-          <h2 id="treatment-title">Tratamientos psicológicos más comunes</h2>
+          <p className="section-kicker">Apoyos principales</p>
+          <h2 id="treatment-title">Acompañamientos psicológicos más comunes</h2>
         </div>
 
         <div className="treatment-grid">
@@ -173,7 +230,7 @@ function TreatmentPage({ onNavigate }) {
               <h3>{treatment.title}</h3>
               <p>{treatment.text}</p>
               <button type="button" onClick={() => setSelectedTreatment(treatment)}>
-                Ver más
+                Conocer más
                 <ArrowRight size={17} />
               </button>
             </article>
@@ -184,7 +241,7 @@ function TreatmentPage({ onNavigate }) {
       <section className="treatment-process page-section" aria-labelledby="process-title">
         <div>
           <CheckCircle2 size={28} />
-          <h2 id="process-title">Cómo suele iniciar un tratamiento</h2>
+          <h2 id="process-title">Cómo suele iniciar el acompañamiento</h2>
           <p>
             Antes de elegir una técnica, es importante conocer la historia, el momento emocional y los apoyos disponibles.
           </p>
@@ -202,13 +259,13 @@ function TreatmentPage({ onNavigate }) {
       <section className="treatment-note page-section">
         <AlertCircle size={24} />
         <div>
-          <h2>El tratamiento no es igual para todos</h2>
+          <h2>Cada proceso necesita su propio ritmo</h2>
           <p>
             La mejor opción depende del estado emocional, diagnóstico, entorno familiar y recursos de apoyo. Una
             evaluación inicial ayuda a orientar el camino adecuado.
           </p>
           <button type="button" onClick={() => onNavigate('contacto')}>
-            Hablar con contactos
+            Hablar con alguien
             <ArrowRight size={18} />
           </button>
         </div>
@@ -230,7 +287,7 @@ function TreatmentModal({ treatment, onClose }) {
 
         <div className="treatment-modal__aside">
           <ShieldCheck size={34} />
-          <p className="section-kicker">Detalle terapeutico</p>
+          <p className="section-kicker">Acompañamiento terapéutico</p>
           <h2 id="treatment-modal-title">{treatment.title}</h2>
           <p>{treatment.text}</p>
         </div>
@@ -241,7 +298,7 @@ function TreatmentModal({ treatment, onClose }) {
             <p>{treatment.details.goal}</p>
           </section>
           <section>
-            <h3>Cuando puede ayudar</h3>
+            <h3>Cuándo puede acompañar</h3>
             <p>{treatment.details.usefulFor}</p>
           </section>
           <section>

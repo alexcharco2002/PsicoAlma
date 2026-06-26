@@ -4,6 +4,43 @@
   color: var(--color-on-surface);
 }
 
+.app-shell--dark {
+  background: #071e2b;
+  color: #edf8ff;
+}
+
+.urgent-help-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: #005dac;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 18px 42px rgb(0 68 124 / 28%);
+}
+
+.urgent-help-button span {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+}
+
+.urgent-help-button small {
+  font-size: 0.78rem;
+  font-weight: 800;
+  opacity: 0.86;
+}
+
 .app-shell p {
   text-align: justify;
 }
@@ -100,6 +137,15 @@
   .ghost-button {
     width: 100%;
     min-height: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .urgent-help-button {
+    right: 14px;
+    bottom: 14px;
+    min-height: 56px;
+    padding-inline: 16px;
   }
 }
 

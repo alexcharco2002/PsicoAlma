@@ -4,10 +4,10 @@ import './PreventionPage.css';
 const preventionTips = [
   {
     title: 'Reconocer emociones',
-    text: 'Nombrar miedo, tristeza, enojo o incertidumbre ayuda a comprender lo que esta pasando y pedir apoyo a tiempo.',
+    text: 'Nombrar miedo, tristeza, enojo o incertidumbre ayuda a comprender lo que está pasando y pedir apoyo a tiempo.',
   },
   {
-    title: 'Mantener rutinas pequenas',
+    title: 'Mantener rutinas pequeñas',
     text: 'Dormir, alimentarse, hidratarse y tener pausas breves puede sostener la estabilidad emocional durante el proceso.',
   },
   {
@@ -22,21 +22,21 @@ const preventionTips = [
 
 const warningSigns = [
   'Llanto frecuente o tristeza que no disminuye.',
-  'Miedo intenso, crisis de ansiedad o sensacion de no poder respirar.',
-  'Aislamiento, perdida de interes o falta de energia por varios dias.',
-  'Dificultad para dormir, comer o realizar actividades basicas.',
+  'Miedo intenso, crisis de ansiedad o sensación de no poder respirar.',
+  'Aislamiento, pérdida de interés o falta de energía por varios días.',
+  'Dificultad para dormir, comer o realizar actividades básicas.',
   'Pensamientos de desesperanza o de no querer continuar.',
 ];
 
 const preventionOverview = [
   {
-    title: 'Detectar a tiempo',
+    title: 'Escuchar señales tempranas',
     icon: HeartPulse,
     text: 'Observar cambios emocionales permite buscar apoyo antes de que el malestar se vuelva más intenso o difícil de manejar.',
     points: ['Cambios de ánimo', 'Señales de ansiedad', 'Cansancio emocional'],
   },
   {
-    title: 'Activar la red',
+    title: 'Activar una red cercana',
     icon: UsersRound,
     text: 'La familia, amistades y profesionales pueden ayudar a distribuir responsabilidades y sostener el acompañamiento diario.',
     points: ['Pedir ayuda concreta', 'Organizar tareas', 'Evitar el aislamiento'],
@@ -56,20 +56,20 @@ function PreventionPage({ onNavigate }) {
         <div className="prevention-hero__heading">
           <div className="prevention-hero__label">
             <ShieldCheck size={20} />
-            Prevención psicológica
+            Cuidado preventivo
           </div>
-          <h1>Cuidar la mente también es parte del tratamiento</h1>
+          <h1>Reconocer señales para cuidar el bienestar emocional</h1>
         </div>
 
         <div className="prevention-intro">
-          <h2>Qué se va a tratar aquí</h2>
+          <h2>Cómo ayuda esta sección</h2>
           <p>
             La prevención psicológica permite reconocer señales emocionales antes de que se vuelvan más difíciles de
-            manejar. En esta página encontrarás consejos, alertas y acciones sencillas para pacientes, familiares y
-            cuidadores.
+            manejar. En esta página encontrarás consejos, alertas y acciones sencillas para personas que atraviesan una
+            enfermedad compleja, familiares y cuidadores.
           </p>
           <button type="button" className="prevention-intro__button" onClick={() => onNavigate('evaluacion')}>
-            Hacer evaluación rápida
+            Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
         </div>
@@ -100,7 +100,7 @@ function PreventionPage({ onNavigate }) {
 
       <section className="prevention-tips page-section" aria-labelledby="prevention-tips-title">
         <div className="prevention-tips__heading">
-          <p className="section-kicker">Consejos principales</p>
+          <p className="section-kicker">Acciones de cuidado</p>
           <h2 id="prevention-tips-title">Acciones para proteger el bienestar emocional</h2>
         </div>
 
@@ -119,7 +119,7 @@ function PreventionPage({ onNavigate }) {
         <div className="prevention-warning__content">
           <div>
             <AlertTriangle size={28} />
-            <h2 id="warning-title">Señales de alerta emocional</h2>
+          <h2 id="warning-title">Señales de alerta emocional</h2>
             <p>
               Si una o varias de estas señales aparecen con intensidad o duran varios días, es recomendable buscar apoyo
               profesional o contactar a una persona de confianza.
@@ -142,10 +142,10 @@ function PreventionPage({ onNavigate }) {
           <h2>La prevención también acompaña a la familia</h2>
           <p>
             Los cuidadores también necesitan descanso, escucha y orientación. Cuidar a quien cuida evita agotamiento y
-            fortalece el apoyo al paciente.
+            fortalece el apoyo a la persona.
           </p>
           <button type="button" onClick={() => onNavigate('contacto')}>
-            Contactar apoyo
+            Hablar con alguien
             <ArrowRight size={18} />
           </button>
         </div>

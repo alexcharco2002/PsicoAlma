@@ -9,19 +9,19 @@ function ServicesPage({ onNavigate }) {
         <div className="services-hero__heading">
           <div className="services-hero__label">
             <HeartHandshake size={20} />
-            Servicios
+            Rutas de apoyo
           </div>
-          <h1>Acompañamiento psicológico por etapas</h1>
+          <h1>Acompañamiento emocional organizado por etapas</h1>
         </div>
 
         <div className="services-intro">
-          <h2>Qué ofrecemos</h2>
+          <h2>Cómo podemos acompañarte</h2>
           <p>
-            Organizamos el apoyo en evaluación, diagnóstico emocional, tratamiento psicológico y prevención para que cada
-            persona tenga una ruta clara, humana y profesional durante el proceso de enfermedad catastrófica.
+            Organizamos el apoyo en evaluación, orientación emocional, acompañamiento psicológico y prevención para que cada
+            persona tenga una ruta clara, humana y profesional durante un proceso de salud complejo.
           </p>
           <button type="button" className="services-intro__button" onClick={() => onNavigate('evaluacion')}>
-            Iniciar evaluación
+            Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
         </div>
@@ -36,7 +36,7 @@ function ServicesPage({ onNavigate }) {
         <article>
           <CheckCircle2 size={26} />
           <h2>Apoyo humano</h2>
-          <p>El proceso considera al paciente, la familia y los cuidadores como parte de la red de bienestar.</p>
+          <p>El proceso considera a la persona, la familia y los cuidadores como parte de la red de bienestar.</p>
         </article>
         <article>
           <CheckCircle2 size={26} />
@@ -47,8 +47,8 @@ function ServicesPage({ onNavigate }) {
 
       <section className="services-list page-section" aria-labelledby="services-title">
         <div className="services-list__heading">
-          <p className="section-kicker">Atencion principal</p>
-          <h2 id="services-title">Servicios de apoyo psicológico</h2>
+          <p className="section-kicker">Acompañamiento principal</p>
+          <h2 id="services-title">Servicios para sostener el proceso emocional</h2>
         </div>
 
         <div className="services-grid">
@@ -71,7 +71,7 @@ function ServicesPage({ onNavigate }) {
                   </li>
                   <li>
                     <CheckCircle2 size={18} />
-                    Plan adaptado al paciente y familia
+                    Plan adaptado a la persona y su familia
                   </li>
                 </ul>
               </article>
@@ -86,7 +86,7 @@ function ServicesPage({ onNavigate }) {
           <h2>¿No sabes por dónde empezar?</h2>
           <p>La evaluación inicial puede orientar el primer paso según el momento emocional y la red de apoyo disponible.</p>
           <button type="button" onClick={() => onNavigate('evaluacion')}>
-            Empezar evaluación rápida
+            Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
         </div>

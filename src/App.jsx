@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { PhoneCall } from 'lucide-react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { getPageComponent, getPageIdFromPath, getPathForPage } from './routes/pageRegistry';
@@ -18,6 +19,7 @@ const initialComments = [
 function App() {
   const [activePage, setActivePage] = useState(() => getPageIdFromPath(window.location.pathname));
   const [comments, setComments] = useState(initialComments);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -73,9 +75,27 @@ function App() {
   const Page = getPageComponent(activePage);
 
   return (
-    <main className="app-shell">
-      <Header activePage={activePage} onNavigate={navigateToPage} />
-      <Page comments={comments} addComment={addComment} removeComment={removeComment} onNavigate={navigateToPage} />
+    <main className={isDarkMode ? 'app-shell app-shell--dark' : 'app-shell'}>
+      <Header
+        activePage={activePage}
+        isDarkMode={isDarkMode}
+        onNavigate={navigateToPage}
+        onToggleDarkMode={() => setIsDarkMode((current) => !current)}
+      />
+      <Page
+        comments={comments}
+        addComment={addComment}
+        removeComment={removeComment}
+        isDarkMode={isDarkMode}
+        onNavigate={navigateToPage}
+      />
+      <button type="button" className="urgent-help-button" onClick={() => navigateToPage('contacto')}>
+        <PhoneCall size={20} />
+        <span>
+          Ayuda urgente
+          <small>Contactar apoyo</small>
+        </span>
+      </button>
       <Footer onNavigate={navigateToPage} />
     </main>
   );

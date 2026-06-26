@@ -7,6 +7,11 @@
   backdrop-filter: blur(16px);
 }
 
+.app-shell--dark .site-header {
+  border-bottom-color: rgb(237 248 255 / 16%);
+  background: rgb(7 30 43 / 92%);
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;
@@ -20,8 +25,10 @@
 .site-nav__link,
 .account-button,
 .help-button,
+.theme-button,
 .menu-button,
-.mobile-nav__link {
+.mobile-nav__link,
+.mobile-nav__theme {
   border: 0;
   font: inherit;
   cursor: pointer;
@@ -75,7 +82,7 @@
 .site-header__actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
 }
 
 .account-button {
@@ -94,6 +101,49 @@
   font-size: 0.96rem;
   font-weight: 800;
   box-shadow: 0 12px 24px rgb(0 93 172 / 16%);
+}
+
+.theme-button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(25 118 210 / 18%);
+  border-radius: 999px;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
+  transform: translateX(8px);
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.theme-button--active,
+.theme-button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.app-shell--dark .brand,
+.app-shell--dark .site-nav__link {
+  color: #c4d9e6;
+}
+
+.app-shell--dark .site-nav__link:hover,
+.app-shell--dark .site-nav__link--active,
+.app-shell--dark .brand {
+  color: #edf8ff;
+}
+
+.app-shell--dark .menu-button,
+.app-shell--dark .theme-button {
+  border-color: rgb(237 248 255 / 18%);
+  background: #12374b;
+  color: #edf8ff;
+}
+
+.app-shell--dark .theme-button--active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .menu-button {
@@ -168,7 +218,8 @@
   }
 
   .mobile-nav__account,
-  .mobile-nav__help {
+  .mobile-nav__help,
+  .mobile-nav__theme {
     min-height: 48px;
     border: 0;
     border-radius: 999px;
@@ -176,6 +227,22 @@
     font-weight: 800;
     font-size: 1rem;
     cursor: pointer;
+  }
+
+  .mobile-nav__theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-surface-container-lowest);
+    color: var(--color-primary);
+    transform: none;
+  }
+
+  .app-shell--dark .mobile-nav__link,
+  .app-shell--dark .mobile-nav__theme {
+    background: #12374b;
+    color: #edf8ff;
   }
 
   .mobile-nav__account {

@@ -4,6 +4,7 @@ import DiseasesPage from '../pages/DiseasesPage/DiseasesPage';
 import EvaluationPage from '../pages/EvaluationPage/EvaluationPage';
 import ContactPage from '../pages/ContactPage/ContactPage';
 import PreventionPage from '../pages/PreventionPage/PreventionPage';
+import PromotionPage from '../pages/PromotionPage/PromotionPage';
 import TreatmentPage from '../pages/TreatmentPage/TreatmentPage';
 
 export const defaultPageId = 'inicio';
@@ -13,6 +14,7 @@ export const appRoutes = [
   { id: 'servicios', path: '/servicios', component: ServicesPage },
   { id: 'evaluacion', path: '/evaluacion', component: EvaluationPage },
   { id: 'prevencion', path: '/prevencion', component: PreventionPage },
+  { id: 'promocion', path: '/promocion', component: PromotionPage },
   { id: 'tratamiento', path: '/tratamiento', component: TreatmentPage },
   { id: 'enfermedades', path: '/enfermedades', component: DiseasesPage },
   { id: 'contacto', path: '/contacto-general', component: ContactPage },
@@ -23,6 +25,7 @@ export const pageRegistry = {
   servicios: ServicesPage,
   evaluacion: EvaluationPage,
   prevencion: PreventionPage,
+  promocion: PromotionPage,
   tratamiento: TreatmentPage,
   enfermedades: DiseasesPage,
   contacto: ContactPage,

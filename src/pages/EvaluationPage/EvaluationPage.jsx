@@ -17,7 +17,7 @@ import './EvaluationPage.css';
 
 const evaluationStorageKey = 'psicoalma-evaluations';
 
-const stepLabels = ['Datos', 'Estado', 'Síntomas', 'Apoyo', 'Seguimiento'];
+const stepLabels = ['Datos', 'Estado', 'Síntomas', 'Impacto', 'Apoyo', 'Seguimiento'];
 
 const moodOptions = [
   { value: 'muy-bajo', label: 'Muy bajo', icon: CircleAlert, score: 4 },
@@ -42,6 +42,81 @@ const supportOptions = [
   { value: 'baja', label: 'Me siento con poco apoyo', score: 4 },
 ];
 
+const intensityOptions = [
+  { value: 'poco', label: 'Poco', score: 1 },
+  { value: 'moderado', label: 'Moderado', score: 2 },
+  { value: 'mucho', label: 'Mucho', score: 3 },
+  { value: 'demasiado', label: 'Demasiado', score: 4 },
+];
+
+const frequencyOptions = [
+  { value: 'algunos-dias', label: 'Algunos días', score: 1 },
+  { value: 'mitad-dias', label: 'Más de la mitad de los días', score: 2 },
+  { value: 'casi-todos', label: 'Casi todos los días', score: 4 },
+];
+
+const dailyImpactOptions = [
+  { value: 'leve', label: 'Afecta poco mi rutina', score: 1 },
+  { value: 'moderado', label: 'Afecta sueño, estudio, trabajo o relaciones', score: 3 },
+  { value: 'alto', label: 'Me cuesta cumplir actividades importantes', score: 5 },
+];
+
+const supportNetworkOptions = [
+  { id: 'familia', label: 'Familia' },
+  { id: 'amistades', label: 'Amistades' },
+  { id: 'pareja', label: 'Pareja' },
+  { id: 'personal-medico', label: 'Personal médico' },
+  { id: 'nadie', label: 'No cuento con nadie ahora' },
+];
+
+const helpReasonOptions = [
+  { value: 'hablar', label: 'Quiero hablar con alguien' },
+  { value: 'ansiedad', label: 'Tengo miedo o ansiedad' },
+  { value: 'familia', label: 'Necesito orientación familiar' },
+  { value: 'agotamiento', label: 'Me siento agotado/a' },
+  { value: 'diagnostico', label: 'No sé cómo afrontar el diagnóstico' },
+  { value: 'cuidador', label: 'Necesito apoyo como cuidador/a' },
+];
+
+const urgencyOptions = [
+  { value: 'no', label: 'No' },
+  { value: 'necesito-apoyo', label: 'Necesito apoyo pronto' },
+  { value: 'riesgo-hoy', label: 'Sí, me siento en riesgo hoy' },
+];
+
+const medicalSituationOptions = [
+  { value: 'cancer', label: 'Cáncer' },
+  { value: 'renal', label: 'Enfermedad renal crónica' },
+  { value: 'cardiaca', label: 'Enfermedad cardíaca grave' },
+  { value: 'neurologica', label: 'Enfermedad neurológica' },
+  { value: 'cuidados', label: 'Proceso de cuidado o acompañamiento familiar' },
+  { value: 'otro', label: 'Otro' },
+];
+
+const supportNeedOptions = [
+  { value: 'escucha', label: 'Necesito ser escuchado/a' },
+  { value: 'orientacion', label: 'Necesito orientación para afrontar el proceso' },
+  { value: 'familia', label: 'Necesito apoyo para mi familia' },
+  { value: 'recursos', label: 'Necesito recursos o recomendaciones' },
+  { value: 'otro', label: 'Otro' },
+];
+
+const treatmentOptions = [
+  { value: 'ninguno', label: 'No tengo seguimiento actualmente' },
+  { value: 'psicologico', label: 'Terapia psicológica' },
+  { value: 'medico', label: 'Seguimiento médico' },
+  { value: 'ambos', label: 'Seguimiento médico y psicológico' },
+  { value: 'otro', label: 'Otro' },
+];
+
+const copingOptions = [
+  { value: 'hablar', label: 'Hablar con alguien de confianza' },
+  { value: 'respiracion', label: 'Respiración, relajación o meditación' },
+  { value: 'actividad', label: 'Actividad física o caminatas' },
+  { value: 'ninguna', label: 'Aún no tengo estrategias' },
+  { value: 'otro', label: 'Otro' },
+];
+
 const initialForm = {
   name: '',
   email: '',
@@ -49,14 +124,24 @@ const initialForm = {
   phone: '',
   role: '',
   medicalSituation: '',
+  medicalSituationOther: '',
   mood: '',
   symptoms: [],
+  symptomIntensity: '',
+  frequency: '',
+  dailyImpact: '',
   support: '',
+  supportNetwork: [],
+  supportNeed: '',
   notes: '',
   durationWeeks: '',
+  urgencyToday: '',
+  helpReason: '',
   suicidalIdeation: '',
   currentTreatment: '',
+  currentTreatmentOther: '',
   copingStrategies: '',
+  copingStrategiesOther: '',
   consentToContact: false,
 };
 
@@ -67,7 +152,7 @@ function EvaluationPage() {
   const [sentEvaluation, setSentEvaluation] = useState(null);
   const [isSending, setIsSending] = useState(false);
 
-  const totalSteps = 5;
+  const totalSteps = stepLabels.length;
   const progress = ((step + 1) / totalSteps) * 100;
   const result = useMemo(() => calculateResult(form), [form]);
   const canContinue = validateStep(step, form);
@@ -82,6 +167,18 @@ function EvaluationPage() {
       return {
         ...current,
         symptoms: exists ? current.symptoms.filter((item) => item !== id) : [...current.symptoms, id],
+      };
+    });
+  };
+
+  const toggleSupportNetwork = (id) => {
+    setForm((current) => {
+      const exists = current.supportNetwork.includes(id);
+      const nextNetwork = exists ? current.supportNetwork.filter((item) => item !== id) : [...current.supportNetwork, id];
+
+      return {
+        ...current,
+        supportNetwork: id === 'nadie' && !exists ? ['nadie'] : nextNetwork.filter((item) => item !== 'nadie' || id === 'nadie'),
       };
     });
   };
@@ -164,20 +261,20 @@ function EvaluationPage() {
         <div className="evaluation-hero__heading">
           <div className="evaluation-hero__label">
             <ShieldCheck size={20} />
-            Evaluación emocional
+            Orientación emocional
           </div>
-          <h1>Evaluación psicológica inicial</h1>
+          <h1>Un primer paso para entender cómo te sientes</h1>
         </div>
 
         <div className="evaluation-intro">
-          <h2>Qué encontrarás aquí</h2>
+          <h2>Cómo funciona este espacio</h2>
           <p>
-            Esta evaluación rápida ayuda a identificar señales emocionales frecuentes en personas con enfermedades
-            catastróficas, familiares y cuidadores. No reemplaza una consulta profesional, pero puede orientar el primer
-            paso para recibir acompañamiento.
+            Esta evaluación rápida ayuda a identificar señales emocionales frecuentes en personas que atraviesan una
+            enfermedad compleja, familiares y cuidadores. No reemplaza una consulta profesional, pero puede orientar el
+            primer paso para recibir acompañamiento.
           </p>
           <button type="button" className="evaluation-hero__button" onClick={openEvaluation}>
-            Empezar evaluación rápida
+            Iniciar evaluación con calma
             <ArrowRight size={20} />
           </button>
         </div>
@@ -201,10 +298,34 @@ function EvaluationPage() {
         </article>
       </section>
 
+      <section className="evaluation-privacy page-section" aria-label="Privacidad y alcance de la evaluación">
+        <article>
+          <ShieldCheck size={24} />
+          <div>
+            <h2>Uso responsable</h2>
+            <p>Tus respuestas se usan solo con fines de orientación y posible seguimiento relacionado con esta evaluación.</p>
+          </div>
+        </article>
+        <article>
+          <HeartHandshake size={24} />
+          <div>
+            <h2>Alcance profesional</h2>
+            <p>Esta evaluación no reemplaza atención médica o psicológica profesional, valoración especializada ni tratamiento.</p>
+          </div>
+        </article>
+        <article>
+          <CircleAlert size={24} />
+          <div>
+            <h2>Riesgo inmediato</h2>
+            <p>Si estás en riesgo inmediato o podrías hacerte daño, busca ayuda urgente o acude a emergencias.</p>
+          </div>
+        </article>
+      </section>
+
       <section className="evaluation-note page-section">
         <div className="evaluation-note__heading">
-          <p className="section-kicker">Información principal</p>
-          <h2>Qué se revisa en la evaluación</h2>
+          <p className="section-kicker">Ruta de orientación</p>
+          <h2>Qué revisamos para acompañarte mejor</h2>
         </div>
         <div className="evaluation-review-grid">
           <article>
@@ -230,7 +351,7 @@ function EvaluationPage() {
           <article>
             <span>05</span>
             <h3>Necesidad principal</h3>
-            <p>Un comentario final para explicar qué tipo de ayuda o contacto necesita la persona.</p>
+            <p>Una selección final para explicar qué tipo de ayuda o contacto necesita la persona.</p>
           </article>
         </div>
       </section>
@@ -248,6 +369,7 @@ function EvaluationPage() {
           setStep={setStep}
           step={step}
           submitEvaluation={submitEvaluation}
+          toggleSupportNetwork={toggleSupportNetwork}
           toggleSymptom={toggleSymptom}
           totalSteps={totalSteps}
           updateField={updateField}
@@ -269,6 +391,7 @@ function EvaluationModal({
   setStep,
   step,
   submitEvaluation,
+  toggleSupportNetwork,
   toggleSymptom,
   totalSteps,
   updateField,
@@ -277,66 +400,71 @@ function EvaluationModal({
     <div className="evaluation-modal" role="dialog" aria-modal="true" aria-labelledby="evaluation-modal-title">
       <div className="evaluation-modal__backdrop" onClick={closeEvaluation} />
       <div className="evaluation-modal__panel">
-        <button
-          type="button"
-          className="evaluation-modal__close"
-          onClick={closeEvaluation}
-          aria-label="Cerrar evaluación"
-          disabled={isSending}
-        >
-          <X size={22} />
-        </button>
+        <header className="evaluation-modal__top">
+          <div className="evaluation-modal__header">
+            <h2 id="evaluation-modal-title">Dinos cómo te sientes hoy</h2>
+            <p>
+              <ShieldCheck size={17} />
+              Este es un espacio seguro. Tus respuestas se tratan con respeto.
+            </p>
+          </div>
 
-        <header className="evaluation-modal__header">
-          <h2 id="evaluation-modal-title">Dinos cómo te sientes hoy</h2>
-          <p>
-            <ShieldCheck size={17} />
-            Este es un espacio seguro. Tus respuestas son confidenciales.
-          </p>
+          <button
+            type="button"
+            className="evaluation-modal__close"
+            onClick={closeEvaluation}
+            aria-label="Cerrar evaluación"
+            disabled={isSending}
+          >
+            <X size={22} />
+          </button>
+
+          {!sentEvaluation && (
+            <section className="evaluation-progress" aria-label="Progreso de evaluación">
+              <div className="evaluation-progress__meta">
+                <strong>{stepLabels[step]}</strong>
+                <span>
+                  Paso {step + 1} de {totalSteps}
+                </span>
+              </div>
+              <div className="evaluation-progress__steps" aria-label="Pasos de la evaluación">
+                {stepLabels.map((label, index) => (
+                  <span key={label} className={index <= step ? 'evaluation-progress__step evaluation-progress__step--active' : 'evaluation-progress__step'}>
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <div className="evaluation-progress__track">
+                <span style={{ width: `${progress}%` }} />
+              </div>
+            </section>
+          )}
         </header>
 
-        {!sentEvaluation && (
-          <section className="evaluation-progress" aria-label="Progreso de evaluación">
-            <div className="evaluation-progress__meta">
-              <strong>{stepLabels[step]}</strong>
-              <span>
-                Paso {step + 1} de {totalSteps}
-              </span>
-            </div>
-            <div className="evaluation-progress__steps" aria-label="Pasos de la evaluación">
-              {stepLabels.map((label, index) => (
-                <span key={label} className={index <= step ? 'evaluation-progress__step evaluation-progress__step--active' : 'evaluation-progress__step'}>
-                  {label}
-                </span>
-              ))}
-            </div>
-            <div className="evaluation-progress__track">
-              <span style={{ width: `${progress}%` }} />
-            </div>
+        <main className="evaluation-modal__body">
+          <section className="evaluation-card">
+            {sentEvaluation ? (
+              <ResultView
+                isSending={isSending}
+                result={result}
+                resetEvaluation={resetEvaluation}
+                sentEvaluation={sentEvaluation}
+              />
+            ) : (
+              <>
+                {step === 0 && <PersonalStep form={form} updateField={updateField} />}
+                {step === 1 && <MoodStep value={form.mood} onChange={(value) => updateField('mood', value)} />}
+                {step === 2 && <SymptomsStep selected={form.symptoms} onToggle={toggleSymptom} />}
+                {step === 3 && <ImpactStep form={form} updateField={updateField} />}
+                {step === 4 && <SupportStep form={form} updateField={updateField} result={result} toggleSupportNetwork={toggleSupportNetwork} />}
+                {step === 5 && <AdditionalStep form={form} updateField={updateField} />}
+              </>
+            )}
           </section>
-        )}
-
-        <section className="evaluation-card">
-          {sentEvaluation ? (
-            <ResultView
-              isSending={isSending}
-              result={result}
-              resetEvaluation={resetEvaluation}
-              sentEvaluation={sentEvaluation}
-            />
-          ) : (
-            <>
-              {step === 0 && <PersonalStep form={form} updateField={updateField} />}
-              {step === 1 && <MoodStep value={form.mood} onChange={(value) => updateField('mood', value)} />}
-              {step === 2 && <SymptomsStep selected={form.symptoms} onToggle={toggleSymptom} />}
-              {step === 3 && <SupportStep form={form} updateField={updateField} result={result} />}
-              {step === 4 && <AdditionalStep form={form} updateField={updateField} />}
-            </>
-          )}
-        </section>
+        </main>
 
         {!sentEvaluation && (
-          <div className="evaluation-actions">
+          <footer className="evaluation-modal__footer">
             <button
               type="button"
               className="evaluation-actions__secondary"
@@ -362,7 +490,7 @@ function EvaluationModal({
                 <Mail size={18} />
               </button>
             )}
-          </div>
+          </footer>
         )}
       </div>
     </div>
@@ -414,7 +542,7 @@ function PersonalStep({ form, updateField }) {
           Relación con el proceso
           <select value={form.role} onChange={(event) => updateField('role', event.target.value)}>
             <option value="">Selecciona una opción</option>
-            <option value="paciente">Soy paciente</option>
+            <option value="persona">Soy la persona que vive el proceso</option>
             <option value="familiar">Soy familiar</option>
             <option value="cuidador">Soy cuidador/a</option>
             <option value="profesional">Soy profesional o estudiante</option>
@@ -422,12 +550,28 @@ function PersonalStep({ form, updateField }) {
         </label>
         <label>
           Situación médica
-          <input
+          <select
             value={form.medicalSituation}
             onChange={(event) => updateField('medicalSituation', event.target.value)}
-            placeholder="Diagnóstico o situación actual"
-          />
+          >
+            <option value="">Selecciona una opción</option>
+            {medicalSituationOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
+        {form.medicalSituation === 'otro' && (
+          <label>
+            Describe brevemente tu situación
+            <input
+              value={form.medicalSituationOther}
+              onChange={(event) => updateField('medicalSituationOther', event.target.value)}
+              placeholder="Escribe lo que consideres importante"
+            />
+          </label>
+        )}
       </div>
     </div>
   );
@@ -479,7 +623,64 @@ function SymptomsStep({ selected, onToggle }) {
   );
 }
 
-function SupportStep({ form, updateField, result }) {
+function ImpactStep({ form, updateField }) {
+  return (
+    <div className="evaluation-step">
+      <h3>¿Qué tanto está afectando tu vida diaria?</h3>
+      <p className="evaluation-step__hint">Esto ayuda a comprender la intensidad, frecuencia e impacto del malestar.</p>
+
+      <div className="scale-section">
+        <h4>Intensidad emocional</h4>
+        <div className="scale-grid">
+          {intensityOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={form.symptomIntensity === option.value ? 'scale-option scale-option--selected' : 'scale-option'}
+              onClick={() => updateField('symptomIntensity', option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="scale-section">
+        <h4>Frecuencia reciente</h4>
+        <div className="scale-grid scale-grid--three">
+          {frequencyOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={form.frequency === option.value ? 'scale-option scale-option--selected' : 'scale-option'}
+              onClick={() => updateField('frequency', option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="scale-section">
+        <h4>Funcionamiento diario</h4>
+        <div className="scale-grid scale-grid--three">
+          {dailyImpactOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={form.dailyImpact === option.value ? 'scale-option scale-option--selected' : 'scale-option'}
+              onClick={() => updateField('dailyImpact', option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SupportStep({ form, updateField, result, toggleSupportNetwork }) {
   return (
     <div className="evaluation-step">
       <h3>¿Cómo describes tu red de apoyo actual?</h3>
@@ -495,10 +696,43 @@ function SupportStep({ form, updateField, result }) {
           </button>
         ))}
       </div>
-      <label className="notes-field">
-        Comentario adicional opcional
-        <textarea value={form.notes} onChange={(event) => updateField('notes', event.target.value)} placeholder="Cuéntanos brevemente qué necesitas..." />
-      </label>
+      <div className="scale-section">
+        <h4>¿Con quién cuentas actualmente?</h4>
+        <div className="support-network-grid">
+          {supportNetworkOptions.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className={form.supportNetwork.includes(option.id) ? 'network-option network-option--selected' : 'network-option'}
+              onClick={() => toggleSupportNetwork(option.id)}
+            >
+              <CheckCircle2 size={18} />
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="scale-section">
+        <h4>¿Qué apoyo te gustaría recibir en esta etapa?</h4>
+        <div className="help-reason-grid">
+          {supportNeedOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={form.supportNeed === option.value ? 'reason-option reason-option--selected' : 'reason-option'}
+              onClick={() => updateField('supportNeed', option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      {form.supportNeed === 'otro' && (
+        <label className="notes-field">
+          Cuéntanos qué apoyo necesitas
+          <textarea value={form.notes} onChange={(event) => updateField('notes', event.target.value)} placeholder="Escribe lo que consideres importante" />
+        </label>
+      )}
       {form.support && (
         <div className={`evaluation-summary evaluation-summary--${result.level}`}>
           <strong>{result.title}</strong>
@@ -512,8 +746,25 @@ function SupportStep({ form, updateField, result }) {
 function AdditionalStep({ form, updateField }) {
   return (
     <div className="evaluation-step">
-      <h3>Algunas preguntas adicionales</h3>
-      <p className="evaluation-step__hint">Estas preguntas ayudan a precisar la orientación final.</p>
+      <h3>¿Qué tipo de ayuda necesitas ahora?</h3>
+      <p className="evaluation-step__hint">Estas respuestas ayudan a priorizar el seguimiento y orientar mejor el acompañamiento.</p>
+
+      <div className="scale-section">
+        <h4>Motivo principal de ayuda</h4>
+        <div className="help-reason-grid">
+          {helpReasonOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={form.helpReason === option.value ? 'reason-option reason-option--selected' : 'reason-option'}
+              onClick={() => updateField('helpReason', option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="additional-grid">
         <label>
           ¿Cuánto tiempo llevas con estos síntomas? (semanas aproximadas)
@@ -524,6 +775,18 @@ function AdditionalStep({ form, updateField }) {
             onChange={(event) => updateField('durationWeeks', event.target.value)}
             placeholder="Ej. 4"
           />
+        </label>
+
+        <label>
+          ¿Te sientes en peligro de hacerte daño hoy?
+          <select value={form.urgencyToday} onChange={(event) => updateField('urgencyToday', event.target.value)}>
+            <option value="">Selecciona</option>
+            {urgencyOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
 
         <label>
@@ -538,24 +801,61 @@ function AdditionalStep({ form, updateField }) {
 
         <label>
           Tratamiento o seguimiento actual (si aplica)
-          <input
+          <select
             value={form.currentTreatment}
             onChange={(event) => updateField('currentTreatment', event.target.value)}
-            placeholder="Ej. terapia semanal, medicamentos..."
-          />
+          >
+            <option value="">Selecciona</option>
+            {treatmentOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
 
         <label>
           Estrategias que usas para manejarlo
-          <input
+          <select
             value={form.copingStrategies}
             onChange={(event) => updateField('copingStrategies', event.target.value)}
-            placeholder="Ej. caminatas, hablar con amigos..."
-          />
+          >
+            <option value="">Selecciona</option>
+            {copingOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
 
-      {(form.suicidalIdeation === 'si' || form.suicidalIdeation === 'aVeces') && (
+      {(form.currentTreatment === 'otro' || form.copingStrategies === 'otro') && (
+        <div className="additional-grid additional-grid--compact">
+          {form.currentTreatment === 'otro' && (
+            <label>
+              Describe tu seguimiento actual
+              <input
+                value={form.currentTreatmentOther}
+                onChange={(event) => updateField('currentTreatmentOther', event.target.value)}
+                placeholder="Escribe lo que consideres importante"
+              />
+            </label>
+          )}
+          {form.copingStrategies === 'otro' && (
+            <label>
+              Describe tu estrategia de afrontamiento
+              <input
+                value={form.copingStrategiesOther}
+                onChange={(event) => updateField('copingStrategiesOther', event.target.value)}
+                placeholder="Escribe lo que consideres importante"
+              />
+            </label>
+          )}
+        </div>
+      )}
+
+      {(form.suicidalIdeation === 'si' || form.suicidalIdeation === 'aVeces' || form.urgencyToday === 'riesgo-hoy') && (
         <div className="risk-alert">
           <CircleAlert size={22} />
           <p>
@@ -593,6 +893,14 @@ function ResultView({ isSending, result, resetEvaluation, sentEvaluation }) {
         <strong>{result.title}</strong>
         <span>{result.description}</span>
       </div>
+      {result.metrics && (
+        <div className="result-metrics" aria-label="Resumen por categorías">
+          <span>Estado emocional: {getMetricLabel(result.metrics.emotional)}</span>
+          <span>Riesgo: {getMetricLabel(result.metrics.risk)}</span>
+          <span>Red de apoyo: {getMetricLabel(result.metrics.support)}</span>
+          <span>Rutina diaria: {getMetricLabel(result.metrics.functioning)}</span>
+        </div>
+      )}
       {isPriority && (
         <div className="risk-alert risk-alert--result">
           <CircleAlert size={22} />
@@ -607,7 +915,7 @@ function ResultView({ isSending, result, resetEvaluation, sentEvaluation }) {
         <p>{result.diagnostic || result.description}</p>
       </div>
       <p>
-        Gracias por compartir cómo te sientes. Esta información ayuda a orientar una respuesta más humana y adecuada.
+        Gracias por compartir cómo te sientes. Esta información ayuda a orientar una respuesta más humana y cuidadosa.
       </p>
       <div
         className={`evaluation-mail-status ${wasSent ? 'evaluation-mail-status--sent' : ''} ${
@@ -635,7 +943,8 @@ function validateStep(step, form) {
         isValidEmail(form.email) &&
         isValidAge(form.age) &&
         form.role &&
-        form.medicalSituation.trim(),
+        form.medicalSituation &&
+        (form.medicalSituation !== 'otro' || form.medicalSituationOther.trim()),
     );
   }
 
@@ -648,10 +957,23 @@ function validateStep(step, form) {
   }
 
   if (step === 3) {
-    return Boolean(form.support);
+    return Boolean(form.symptomIntensity && form.frequency && form.dailyImpact);
   }
 
-  return Boolean(form.suicidalIdeation && form.consentToContact);
+  if (step === 4) {
+    return Boolean(form.support && form.supportNetwork.length > 0 && form.supportNeed && (form.supportNeed !== 'otro' || form.notes.trim()));
+  }
+
+  return Boolean(
+    form.helpReason &&
+      form.urgencyToday &&
+      form.suicidalIdeation &&
+      form.currentTreatment &&
+      (form.currentTreatment !== 'otro' || form.currentTreatmentOther.trim()) &&
+      form.copingStrategies &&
+      (form.copingStrategies !== 'otro' || form.copingStrategiesOther.trim()) &&
+      form.consentToContact,
+  );
 }
 
 function isValidEmail(email) {
@@ -670,30 +992,55 @@ function generateTrackingCode() {
   return `PA-${year}-${random}`;
 }
 
+function getMetricLabel(score) {
+  if (score >= 8) {
+    return 'alto';
+  }
+
+  if (score >= 4) {
+    return 'moderado';
+  }
+
+  return 'bajo';
+}
+
 function calculateResult(form) {
   const moodScore = moodOptions.find((option) => option.value === form.mood)?.score ?? 0;
   const symptomScore = form.symptoms.reduce((total, id) => {
     return total + (symptomOptions.find((option) => option.id === id)?.score ?? 0);
   }, 0);
+  const intensityScore = intensityOptions.find((option) => option.value === form.symptomIntensity)?.score ?? 0;
+  const frequencyScore = frequencyOptions.find((option) => option.value === form.frequency)?.score ?? 0;
+  const dailyImpactScore = dailyImpactOptions.find((option) => option.value === form.dailyImpact)?.score ?? 0;
   const supportScore = supportOptions.find((option) => option.value === form.support)?.score ?? 0;
   const suicidalScore = form.suicidalIdeation === 'si' ? 8 : form.suicidalIdeation === 'aVeces' ? 4 : 0;
-  const total = moodScore + symptomScore + supportScore + suicidalScore;
+  const urgencyScore = form.urgencyToday === 'riesgo-hoy' ? 10 : form.urgencyToday === 'necesito-apoyo' ? 3 : 0;
+  const noNetworkScore = form.supportNetwork.includes('nadie') ? 3 : 0;
+  const total = moodScore + symptomScore + intensityScore + frequencyScore + dailyImpactScore + supportScore + suicidalScore + urgencyScore + noNetworkScore;
+  const metrics = {
+    emotional: moodScore + symptomScore + intensityScore + frequencyScore,
+    risk: suicidalScore + urgencyScore,
+    support: supportScore + noNetworkScore,
+    functioning: dailyImpactScore,
+  };
 
-  if (form.suicidalIdeation === 'si' || total >= 9) {
+  if (form.suicidalIdeation === 'si' || form.urgencyToday === 'riesgo-hoy' || total >= 16) {
     return {
       level: 'priority',
       title: 'Atención psicológica prioritaria',
       description: 'Tus respuestas sugieren una carga emocional alta. Es recomendable recibir acompañamiento profesional pronto.',
       diagnostic: `Orientación prioritaria (${total}). Se recomienda contacto pronto con un profesional de salud mental. Si existe riesgo de daño personal, es importante buscar ayuda urgente, acudir a servicios de emergencia o apoyarse en una persona de confianza.`,
+      metrics,
     };
   }
 
-  if (total >= 5) {
+  if (total >= 8) {
     return {
       level: 'recommended',
       title: 'Acompañamiento recomendado',
       description: 'Tus respuestas muestran señales emocionales que pueden beneficiarse de una orientación psicológica.',
       diagnostic: `Orientación recomendada (${total}). Se sugiere iniciar acompañamiento psicológico o seguimiento con un profesional. Estrategias reportadas: ${form.copingStrategies || 'no reportadas'}.`,
+      metrics,
     };
   }
 
@@ -702,6 +1049,7 @@ function calculateResult(form) {
     title: 'Orientación preventiva',
     description: 'Tus respuestas sugieren estabilidad relativa, pero mantener apoyo y autocuidado sigue siendo importante.',
     diagnostic: `Orientación preventiva (${total}). Mantener autocuidado, red de apoyo y observación de cambios emocionales. Si los síntomas empeoran, considera buscar apoyo profesional.`,
+    metrics,
   };
 }
 

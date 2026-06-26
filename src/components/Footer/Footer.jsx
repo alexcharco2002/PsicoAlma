@@ -15,7 +15,7 @@ function Footer({ onNavigate }) {
           </p>
         </div>
 
-        <FooterColumn title="Plataforma" items={['Servicios', 'Evaluación', 'Tratamiento', 'Prevención']} onNavigate={onNavigate} />
+        <FooterColumn title="Plataforma" items={['Servicios', 'Evaluación', 'Tratamiento', 'Prevención', 'Promoción']} onNavigate={onNavigate} />
         <FooterColumn title="Apoyo" items={['Enfermedades', 'Contacto', 'Orientación', 'Especialistas']} onNavigate={onNavigate} />
 
         <div>
@@ -60,6 +60,7 @@ function getFooterTarget(item) {
     Evaluación: 'evaluacion',
     Tratamiento: 'tratamiento',
     Prevención: 'prevencion',
+    Promoción: 'promocion',
     Enfermedades: 'enfermedades',
     Contacto: 'contacto',
     Orientación: 'evaluacion',

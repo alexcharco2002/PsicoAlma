@@ -1,4 +1,14 @@
-import { Activity, ArrowRight, Brain, ClipboardCheck, Heart, HeartHandshake, ShieldCheck, UsersRound } from 'lucide-react';
+import {
+  Activity,
+  ArrowRight,
+  Brain,
+  ClipboardCheck,
+  Heart,
+  HeartHandshake,
+  ShieldCheck,
+  SmilePlus,
+  UsersRound,
+} from 'lucide-react';
 import './HomePage.css';
 
 const homeConcepts = [
@@ -24,18 +34,25 @@ const homeConcepts = [
     tone: 'tertiary',
   },
   {
-    title: 'Servicios de apoyo',
-    text: 'Explora la ruta de evaluación, diagnóstico emocional, tratamiento y seguimiento profesional.',
+    title: 'Servicios de acompañamiento',
+    text: 'Explora la ruta de evaluación, orientación emocional, tratamiento y seguimiento profesional.',
     icon: HeartHandshake,
     page: 'servicios',
     tone: 'primary',
+  },
+  {
+    title: 'Promoción del bienestar',
+    text: 'Fortalece hábitos emocionales, redes de apoyo, comunicación familiar y autocuidado del cuidador.',
+    icon: SmilePlus,
+    page: 'promocion',
+    tone: 'secondary',
   },
   {
     title: 'Evaluación inicial',
     text: 'Realiza una evaluación rápida para identificar cómo te sientes y qué tipo de ayuda puedes necesitar.',
     icon: ClipboardCheck,
     page: 'evaluacion',
-    tone: 'secondary',
+    tone: 'primary',
   },
   {
     title: 'Contactos y especialistas',
@@ -46,9 +63,48 @@ const homeConcepts = [
   },
 ];
 
-function HomePage({ comments, onNavigate }) {
+const userPathSteps = [
+  {
+    title: 'Conoce la enfermedad',
+    text: 'Empieza comprendiendo el impacto físico, emocional y familiar.',
+    icon: Activity,
+    page: 'enfermedades',
+  },
+  {
+    title: 'Identifica cómo te sientes',
+    text: 'Reconoce emociones, síntomas y necesidades actuales.',
+    icon: Heart,
+    page: 'evaluacion',
+  },
+  {
+    title: 'Revisa señales de alerta',
+    text: 'Observa cuándo el malestar requiere atención temprana.',
+    icon: ShieldCheck,
+    page: 'prevencion',
+  },
+  {
+    title: 'Realiza la evaluación',
+    text: 'Completa una guía rápida para orientar el primer apoyo.',
+    icon: ClipboardCheck,
+    page: 'evaluacion',
+  },
+  {
+    title: 'Contacta apoyo',
+    text: 'Busca orientación profesional o un canal de acompañamiento.',
+    icon: UsersRound,
+    page: 'contacto',
+  },
+  {
+    title: 'Inicia acompañamiento',
+    text: 'Continúa con una ruta psicológica y familiar más clara.',
+    icon: HeartHandshake,
+    page: 'servicios',
+  },
+];
+
+function HomePage({ comments, isDarkMode, onNavigate }) {
   return (
-    <div className="home-page">
+    <div className={isDarkMode ? 'home-page home-page--dark' : 'home-page'}>
       <section className="home-hero">
         <div className="home-hero__content">
           <div className="home-hero__text">
@@ -66,10 +122,10 @@ function HomePage({ comments, onNavigate }) {
 
             <div className="home-hero__actions">
               <button type="button" className="primary-button" onClick={() => onNavigate('servicios')}>
-                Empezar ahora
+                Recibir acompañamiento
               </button>
               <button type="button" className="secondary-button" onClick={() => onNavigate('enfermedades')}>
-                Saber más
+                Conocer más
               </button>
             </div>
 
@@ -87,9 +143,9 @@ function HomePage({ comments, onNavigate }) {
             <div className="hero-photo-card">
               <img
                 src="/images/bienvenida-video.jpg"
-                alt="Video introductorio sobre apoyo psicológico"
+                alt="Manos acompañando con calma y cuidado"
                 onError={(event) => {
-                  event.currentTarget.src = 'https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1200&q=85';
+                  event.currentTarget.src = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85';
                 }}
               />
             </div>
@@ -99,8 +155,8 @@ function HomePage({ comments, onNavigate }) {
                 <ShieldCheck size={22} />
               </div>
               <div>
-                <strong>Certificado</strong>
-                <span>Acompañamiento profesional avalado por expertos.</span>
+                <strong>Espacio seguro</strong>
+                <span>Acompañamiento humano con orientación profesional.</span>
               </div>
             </div>
           </div>
@@ -138,35 +194,33 @@ function HomePage({ comments, onNavigate }) {
         </div>
       </section>
 
-      <section className="home-community page-section" aria-label="Ruta de acompañamiento">
-        <article className="community-feature">
-          <div className="community-feature__copy">
-            <h2>Una ruta para no empezar desde cero</h2>
-            <p>
-              Primero conoce la enfermedad y su impacto emocional. Luego revisa prevención, tratamiento y servicios de
-              apoyo. Si necesitas orientación, la evaluación inicial y contactos te ayudan a dar el siguiente paso.
-            </p>
-            <div className="community-feature__tags">
-              <span>#InformaciónClara</span>
-              <span>#ApoyoEmocional</span>
-              <span>#Acompañamiento</span>
-            </div>
-          </div>
-          <img
-            src="/images/comunidad-cuidado.jpg"
-            alt="Espacio tranquilo de acompañamiento y cuidado"
-            onError={(event) => {
-              event.currentTarget.src = 'https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=85';
-            }}
-          />
-        </article>
+      <section className="home-path page-section" aria-labelledby="home-path-title">
+        <div className="home-path__heading">
+          <p className="section-kicker">Ruta sugerida</p>
+          <h2 id="home-path-title" className="section-title">
+            Un camino claro para empezar
+          </h2>
+          <p>
+            Puedes avanzar paso a paso según tu momento. Esta ruta ayuda a pasar de la información inicial a una decisión
+            de apoyo más concreta.
+          </p>
+        </div>
 
-        <article className="rating-card">
-          <ShieldCheck size={34} />
-          <strong>6</strong>
-          <span>módulos principales</span>
-          <p>Enfermedades, tratamiento, prevención, servicios, evaluación y contactos.</p>
-        </article>
+        <div className="home-path__steps">
+          {userPathSteps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <button key={step.title} type="button" className="path-step" onClick={() => onNavigate(step.page)}>
+                <span className="path-step__number">{String(index + 1).padStart(2, '0')}</span>
+                <span className="path-step__icon">
+                  <Icon size={22} />
+                </span>
+                <strong>{step.title}</strong>
+                <small>{step.text}</small>
+              </button>
+            );
+          })}
+        </div>
       </section>
 
       <section className="home-quote page-section">
@@ -185,7 +239,7 @@ function HomePage({ comments, onNavigate }) {
               Empezar evaluación
             </button>
             <button type="button" onClick={() => onNavigate('contacto')}>
-              Ir a contactos
+              Hablar con alguien
             </button>
           </div>
         </div>

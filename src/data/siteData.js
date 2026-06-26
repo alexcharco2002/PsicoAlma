@@ -14,6 +14,7 @@ export const navigation = [
   { id: 'enfermedades', label: 'Enfermedades', path: '/enfermedades' },
   { id: 'tratamiento', label: 'Tratamiento', path: '/tratamiento' },
   { id: 'prevencion', label: 'Prevención', path: '/prevencion' },
+  { id: 'promocion', label: 'Promoción', path: '/promocion' },
   { id: 'servicios', label: 'Servicios', path: '/servicios' },
   { id: 'evaluacion', label: 'Evaluación', path: '/evaluacion' },
 ];
