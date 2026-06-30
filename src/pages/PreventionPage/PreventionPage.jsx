@@ -1,4 +1,6 @@
 import { AlertTriangle, ArrowRight, HeartPulse, Moon, ShieldCheck, SmilePlus, UsersRound } from 'lucide-react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './PreventionPage.css';
 
 const preventionTips = [
@@ -72,6 +74,7 @@ function PreventionPage({ onNavigate }) {
             Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
+          <InlineMediaCard media={pageIntroMedia.prevention} />
         </div>
       </section>
 

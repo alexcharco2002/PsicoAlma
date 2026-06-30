@@ -1,5 +1,7 @@
 import { AlertCircle, ArrowRight, CheckCircle2, CloudRain, HeartPulse, ShieldCheck, UsersRound, X } from 'lucide-react';
 import { useState } from 'react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './DiseasesPage.css';
 
 const impactCards = [
@@ -140,6 +142,7 @@ function DiseasesPage() {
             emociones forman parte del proceso y por qué el apoyo psicológico resulta fundamental para afrontar esta
             experiencia.
           </p>
+          <InlineMediaCard media={pageIntroMedia.diseases} />
         </div>
       </section>
 

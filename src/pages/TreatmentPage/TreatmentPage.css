@@ -307,14 +307,50 @@
   display: grid;
   align-content: start;
   min-height: 292px;
-  padding: 28px;
+  overflow: hidden;
+  padding: 0 0 28px;
   border: 1px solid rgb(25 118 210 / 14%);
   border-radius: 28px;
   background: linear-gradient(180deg, rgb(255 255 255 / 94%) 0%, var(--color-surface-container-low) 100%);
   box-shadow: 0 18px 46px rgb(7 30 39 / 6%);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
-.treatment-grid span {
+.treatment-grid article:hover {
+  transform: translateY(-6px);
+  border-color: rgb(25 118 210 / 30%);
+  box-shadow: 0 26px 62px rgb(0 93 172 / 14%);
+}
+
+.treatment-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface-container-high);
+}
+
+.treatment-card__media img,
+.treatment-card__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(0.98);
+  transition: transform 420ms ease, filter 220ms ease;
+}
+
+.treatment-grid article:hover .treatment-card__media img,
+.treatment-grid article:hover .treatment-card__media video {
+  transform: scale(1.045);
+  filter: saturate(1.02) contrast(1);
+}
+
+.treatment-card__media span {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
   display: inline-grid;
   width: 44px;
   height: 44px;
@@ -327,7 +363,7 @@
 }
 
 .treatment-grid h3 {
-  margin: 20px 0 0;
+  margin: 22px 28px 0;
   color: #061e2b;
   font-size: 1.24rem;
   font-weight: 900;
@@ -335,7 +371,7 @@
 }
 
 .treatment-grid p {
-  margin: 12px 0 0;
+  margin: 12px 28px 0;
   color: var(--color-on-surface-variant);
   font-size: 0.98rem;
   line-height: 1.72;
@@ -348,7 +384,7 @@
   gap: 8px;
   width: fit-content;
   min-height: 42px;
-  margin-top: 22px;
+  margin: 22px 28px 0;
   border: 0;
   border-radius: 999px;
   padding: 0 18px;
@@ -501,28 +537,64 @@
 }
 
 .treatment-modal__aside {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(260px, 0.9fr) auto;
+  overflow: hidden;
   padding: 42px;
-  background: var(--color-primary);
+  padding: 0;
+  background: #061e2b;
   color: var(--color-on-primary);
 }
 
-.treatment-modal__aside svg {
+.treatment-modal__visual {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.treatment-modal__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(6 30 43 / 8%) 0%, rgb(6 30 43 / 62%) 100%);
+  pointer-events: none;
+}
+
+.treatment-modal__visual img,
+.treatment-modal__visual video {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.treatment-modal__visual video {
+  display: block;
+}
+
+.treatment-modal__aside-copy {
+  padding: 34px 42px 42px;
+  background: linear-gradient(180deg, rgb(6 30 43 / 96%) 0%, var(--color-primary) 100%);
+}
+
+.treatment-modal__aside-copy svg {
   color: var(--color-secondary-container);
 }
 
-.treatment-modal__aside .section-kicker {
+.treatment-modal__aside-copy .section-kicker {
   margin-top: 24px;
   color: rgb(255 255 255 / 76%);
 }
 
-.treatment-modal__aside h2 {
+.treatment-modal__aside-copy h2 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   line-height: 1.05;
 }
 
-.treatment-modal__aside p:last-child {
+.treatment-modal__aside-copy p:last-child {
   margin: 20px 0 0;
   color: rgb(255 255 255 / 86%);
   font-size: 1.05rem;

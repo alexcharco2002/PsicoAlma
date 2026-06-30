@@ -10,6 +10,8 @@ import {
   X,
 } from 'lucide-react';
 import { useState } from 'react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './TreatmentPage.css';
 
 const overviewCards = [
@@ -63,6 +65,11 @@ const guidanceCards = [
 const treatments = [
   {
     title: 'Psicoterapia individual',
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=900&q=85',
+      alt: 'Consulta psicológica individual en un espacio de escucha',
+    },
     text: 'Espacio personal para expresar emociones, trabajar miedo, tristeza, ansiedad y adaptación al proceso de salud.',
     details: {
       goal:
@@ -74,6 +81,11 @@ const treatments = [
   },
   {
     title: 'Terapia cognitivo conductual',
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85',
+      alt: 'Acompañamiento cercano para manejar pensamientos difíciles',
+    },
     text: 'Ayuda a identificar pensamientos que aumentan el malestar y construir estrategias más saludables para afrontar situaciones difíciles.',
     details: {
       goal:
@@ -85,6 +97,11 @@ const treatments = [
   },
   {
     title: 'Acompañamiento en duelo',
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85',
+      alt: 'Manos acompañando durante un proceso emocional difícil',
+    },
     text: 'Apoyo para procesar pérdidas, cambios de vida, incertidumbre o despedidas simbólicas dentro del proceso de enfermedad.',
     details: {
       goal:
@@ -96,6 +113,12 @@ const treatments = [
   },
   {
     title: 'Terapia familiar',
+    media: {
+      type: 'video',
+      src: '/images/tratamiento-psicologico.mp4',
+      poster: '/images/consulta-psicologica-ilustracion.jpeg',
+      alt: 'Video sobre terapia familiar y acompañamiento',
+    },
     text: 'Fortalece la comunicación, distribución de responsabilidades y apoyo emocional entre la persona, familia y cuidadores.',
     details: {
       goal:
@@ -107,6 +130,11 @@ const treatments = [
   },
   {
     title: 'Intervención en crisis',
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85',
+      alt: 'Contexto de salud para momentos de crisis emocional',
+    },
     text: 'Atención breve para momentos de ansiedad intensa, noticias médicas difíciles, desbordamiento emocional o sensación de no poder continuar.',
     details: {
       goal:
@@ -118,6 +146,11 @@ const treatments = [
   },
   {
     title: 'Psicoeducación',
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=85',
+      alt: 'Familia acompañando el proceso de salud',
+    },
     text: 'Brinda información clara sobre emociones, autocuidado, señales de alerta y recursos para vivir el proceso con mayor comprensión.',
     details: {
       goal:
@@ -161,6 +194,7 @@ function TreatmentPage({ onNavigate }) {
             Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
+          <InlineMediaCard media={pageIntroMedia.treatment} label="Ver video" />
         </div>
       </section>
 
@@ -226,7 +260,22 @@ function TreatmentPage({ onNavigate }) {
         <div className="treatment-grid">
           {treatments.map((treatment, index) => (
             <article key={treatment.title}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div className="treatment-card__media">
+                {treatment.media.type === 'video' ? (
+                  <video muted loop playsInline preload="metadata" poster={treatment.media.poster}>
+                    <source src={treatment.media.src} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={treatment.media.src}
+                    alt={treatment.media.alt}
+                    onError={(event) => {
+                      event.currentTarget.src = '/images/consulta-psicologica-ilustracion.jpeg';
+                    }}
+                  />
+                )}
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
               <h3>{treatment.title}</h3>
               <p>{treatment.text}</p>
               <button type="button" onClick={() => setSelectedTreatment(treatment)}>
@@ -286,10 +335,27 @@ function TreatmentModal({ treatment, onClose }) {
         </button>
 
         <div className="treatment-modal__aside">
-          <ShieldCheck size={34} />
-          <p className="section-kicker">Acompañamiento terapéutico</p>
-          <h2 id="treatment-modal-title">{treatment.title}</h2>
-          <p>{treatment.text}</p>
+          <div className="treatment-modal__visual">
+            {treatment.media.type === 'video' ? (
+              <video autoPlay muted loop playsInline controls poster={treatment.media.poster}>
+                <source src={treatment.media.src} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                src={treatment.media.src}
+                alt={treatment.media.alt}
+                onError={(event) => {
+                  event.currentTarget.src = '/images/consulta-psicologica-ilustracion.jpeg';
+                }}
+              />
+            )}
+          </div>
+          <div className="treatment-modal__aside-copy">
+            <ShieldCheck size={34} />
+            <p className="section-kicker">Acompañamiento terapéutico</p>
+            <h2 id="treatment-modal-title">{treatment.title}</h2>
+            <p>{treatment.text}</p>
+          </div>
         </div>
 
         <div className="treatment-modal__content">

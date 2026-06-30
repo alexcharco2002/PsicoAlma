@@ -8,6 +8,8 @@ import {
   SmilePlus,
   UsersRound,
 } from 'lucide-react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './PromotionPage.css';
 
 const promotionPillars = [
@@ -80,6 +82,7 @@ function PromotionPage({ onNavigate }) {
             Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
+          <InlineMediaCard media={pageIntroMedia.promotion} />
         </div>
       </section>
 

@@ -9,6 +9,9 @@ import {
   SmilePlus,
   UsersRound,
 } from 'lucide-react';
+import { useState } from 'react';
+import MediaLightbox from '../../components/MediaLightbox/MediaLightbox';
+import { ambientVideos, warmImageFallbacks } from '../../data/mediaAssets';
 import './HomePage.css';
 
 const homeConcepts = [
@@ -103,6 +106,15 @@ const userPathSteps = [
 ];
 
 function HomePage({ comments, isDarkMode, onNavigate }) {
+  const [activeMedia, setActiveMedia] = useState(null);
+  const heroVideo = {
+    type: 'video',
+    title: 'Bienvenida en calma',
+    description: 'Una pausa visual para iniciar el recorrido con calma.',
+    src: ambientVideos.welcome.local,
+    poster: ambientVideos.welcome.poster,
+  };
+
   return (
     <div className={isDarkMode ? 'home-page home-page--dark' : 'home-page'}>
       <section className="home-hero">
@@ -140,15 +152,23 @@ function HomePage({ comments, isDarkMode, onNavigate }) {
           </div>
 
           <div className="home-hero__visual">
-            <div className="hero-photo-card">
-              <img
-                src="/images/bienvenida-video.jpg"
-                alt="Manos acompañando con calma y cuidado"
-                onError={(event) => {
-                  event.currentTarget.src = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85';
-                }}
-              />
-            </div>
+            <button type="button" className="hero-photo-card" onClick={() => setActiveMedia(heroVideo)} aria-label="Ampliar video de bienvenida">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster={ambientVideos.welcome.poster}
+                aria-label="Video ambiental de calma y acompañamiento"
+              >
+                <source src={ambientVideos.welcome.local} type="video/mp4" />
+                <source src={ambientVideos.welcome.webm} type="video/webm" />
+                <source src={ambientVideos.welcome.mp4} type="video/mp4" />
+                <img src={warmImageFallbacks.supportHands} alt="Manos acompañando con calma y cuidado" />
+              </video>
+              <div className="hero-video-label">Clic para ampliar</div>
+            </button>
 
             <div className="certificate-card">
               <div className="certificate-card__icon">
@@ -162,6 +182,8 @@ function HomePage({ comments, isDarkMode, onNavigate }) {
           </div>
         </div>
       </section>
+
+      {activeMedia && <MediaLightbox media={activeMedia} onClose={() => setActiveMedia(null)} />}
 
       <section className="home-preview page-section">
         <div className="home-preview__heading">

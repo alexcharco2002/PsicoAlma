@@ -1,5 +1,7 @@
 import { AlertCircle, ArrowRight, CheckCircle2, HeartHandshake } from 'lucide-react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
 import { careServices } from '../../data/siteData';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './ServicesPage.css';
 
 function ServicesPage({ onNavigate }) {
@@ -24,6 +26,7 @@ function ServicesPage({ onNavigate }) {
             Iniciar evaluación con calma
             <ArrowRight size={18} />
           </button>
+          <InlineMediaCard media={pageIntroMedia.services} label="Ver video" />
         </div>
       </section>
 

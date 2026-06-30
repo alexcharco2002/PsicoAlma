@@ -13,6 +13,8 @@ import {
   X,
 } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import InlineMediaCard from '../../components/InlineMediaCard/InlineMediaCard';
+import { pageIntroMedia } from '../../data/mediaAssets';
 import './EvaluationPage.css';
 
 const evaluationStorageKey = 'psicoalma-evaluations';
@@ -277,6 +279,7 @@ function EvaluationPage() {
             Iniciar evaluación con calma
             <ArrowRight size={20} />
           </button>
+          <InlineMediaCard media={pageIntroMedia.evaluation} label="Ver video" />
         </div>
       </section>
 
