@@ -1,32 +1,38 @@
 .site-footer {
   border-top: 1px solid var(--color-outline-variant);
-  background: var(--color-surface-container-lowest);
-  padding: 72px 0 32px;
+  background:
+    radial-gradient(circle at 8% 0%, rgb(200 241 244 / 50%), transparent 32%),
+    linear-gradient(180deg, var(--color-surface-container-lowest) 0%, var(--color-surface-container-low) 100%);
+  padding: 76px 0 34px;
 }
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.7fr 0.7fr 0.9fr;
-  gap: 48px;
+  grid-template-columns: minmax(280px, 1.15fr) minmax(150px, 0.6fr) minmax(150px, 0.6fr) minmax(280px, 0.95fr);
+  gap: clamp(30px, 5vw, 58px);
   width: min(100% - 80px, 1200px);
   margin-inline: auto;
+}
+
+.site-footer__brand-block {
+  max-width: 370px;
 }
 
 .footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   border: 0;
   background: transparent;
   color: var(--color-primary);
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.42rem;
+  font-weight: 900;
   cursor: pointer;
 }
 
 .footer-brand img {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
@@ -39,45 +45,90 @@
 .site-footer__copy {
   max-width: 320px;
   margin: 22px 0 0;
+  font-size: 1.02rem;
 }
 
 .site-footer__title {
   margin: 0 0 22px;
-  font-size: 1.04rem;
+  color: var(--color-on-surface);
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.site-footer__title::after {
+  display: block;
+  width: 34px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  content: '';
+}
+
+.site-footer__contact {
+  padding: 22px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 22px;
+  background: rgb(255 255 255 / 74%);
+  box-shadow: 0 18px 42px rgb(33 154 163 / 10%);
+}
+
+.site-footer__contact .site-footer__title {
+  margin-bottom: 18px;
+}
+
+.site-footer__contact .site-footer__title::after {
+  background: var(--color-secondary);
+}
+
+.site-footer__line {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 0 0 12px;
+  color: var(--color-on-surface-variant);
+  font-size: 0.95rem;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.site-footer__line:hover {
   color: var(--color-on-surface);
 }
 
 .site-footer__links {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .site-footer__links button {
   width: fit-content;
   border: 0;
+  border-radius: 999px;
   background: transparent;
   color: var(--color-on-surface-variant);
   font: inherit;
+  font-weight: 750;
   cursor: pointer;
+  padding: 2px 0;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .site-footer__links button:hover {
   color: var(--color-primary);
-}
-
-.site-footer__line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 14px;
+  transform: translateX(4px);
 }
 
 .site-footer__line svg {
+  flex: 0 0 auto;
+  margin-top: 4px;
   color: var(--color-primary);
 }
 
 .site-footer__bottom {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   width: min(100% - 80px, 1200px);
@@ -86,6 +137,19 @@
   border-top: 1px solid var(--color-outline-variant);
   color: var(--color-outline);
   font-size: 0.9rem;
+}
+
+.site-footer__bottom button {
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.site-footer__bottom button:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
@@ -109,4 +173,34 @@
     grid-template-columns: 1fr;
     gap: 34px;
   }
+}
+
+.app-shell--dark .site-footer {
+  border-color: rgb(244 251 248 / 18%);
+  background:
+    radial-gradient(circle at 8% 0%, rgb(60 188 195 / 18%), transparent 34%),
+    linear-gradient(180deg, #18362d 0%, #10251f 100%);
+}
+
+.app-shell--dark .site-footer__title {
+  color: #f4fbf8;
+}
+
+.app-shell--dark .site-footer__copy,
+.app-shell--dark .site-footer__line,
+.app-shell--dark .site-footer__links button,
+.app-shell--dark .site-footer__bottom {
+  color: #cde2dc;
+}
+
+.app-shell--dark .site-footer__contact {
+  border-color: rgb(244 251 248 / 18%);
+  background: rgb(31 64 54 / 82%);
+  box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
+}
+
+.app-shell--dark .site-footer__line:hover,
+.app-shell--dark .site-footer__links button:hover,
+.app-shell--dark .site-footer__bottom button {
+  color: #7de2e9;
 }

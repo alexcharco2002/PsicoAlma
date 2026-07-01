@@ -1,17 +1,32 @@
 import { AlertCircle, ArrowRight, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-react';
 import './ContactPage.css';
 
-const contactPerson = {
-  name: 'Mishel Guaman',
-  role: 'Contacto principal',
-  phoneLabel: '+593 961 420 897',
-  phoneHref: 'tel:+593961420897',
-  email: 'estefaniaguaman2004@gmail.com',
-  address: 'Unach',
-  image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=85',
-  description:
-    'Punto de contacto para orientar a personas, familiares y cuidadores que buscan apoyo psicológico durante procesos de enfermedad catastrófica.',
-};
+const contactPeople = [
+  {
+    name: 'Mishel Guaman',
+    role: 'Contacto principal',
+    phoneLabel: '+593 961 420 897',
+    phoneHref: 'tel:+593961420897',
+    email: 'estefaniaguaman2004@gmail.com',
+    address: 'Unach',
+    image: '/images/mishel.jpg',
+    imagePosition: 'center',
+    description:
+      'Punto de contacto para orientar a personas, familiares y cuidadores que buscan apoyo psicológico durante procesos de enfermedad catastrófica.',
+  },
+  {
+    name: 'Rosa Ortega',
+    role: 'Contacto de apoyo',
+    phoneLabel: '+593 993 789 944',
+    phoneHref: 'tel:+593993789944',
+    email: 'rositaortega225@gmail.com',
+    address: 'Unach',
+    image: '/images/rosita.jpg',
+    imagePosition: 'center top',
+    description:
+      'Contacto de apoyo para recibir consultas generales, información inicial y acompañamiento en la ruta de orientación psicológica.',
+  },
+];
 
 function ContactPage({ onNavigate }) {
   return (
@@ -32,13 +47,13 @@ function ContactPage({ onNavigate }) {
             encontrar una ruta de acompañamiento psicológico con calma, respeto y confidencialidad.
           </p>
           <div className="contact-intro__actions">
-            <a href={`mailto:${contactPerson.email}`}>
+            <a href={`mailto:${contactPeople[0].email}`}>
               <Mail size={18} />
-              {contactPerson.email}
+              {contactPeople[0].email}
             </a>
-            <a href={contactPerson.phoneHref}>
+            <a href={contactPeople[0].phoneHref}>
               <Phone size={18} />
-              {contactPerson.phoneLabel}
+              {contactPeople[0].phoneLabel}
             </a>
           </div>
         </div>
@@ -66,46 +81,52 @@ function ContactPage({ onNavigate }) {
         <div className="specialists-section__heading">
           <div>
             <p className="section-kicker">Acompañamiento cercano</p>
-            <h2 id="contact-person-title">Persona de contacto</h2>
-            <span>Un punto de orientación para iniciar el acompañamiento.</span>
+            <h2 id="contact-person-title">Personas de contacto</h2>
+            <span>Puntos de orientación para iniciar el acompañamiento.</span>
           </div>
         </div>
 
         <div className="specialists-grid specialists-grid--single">
-          <article className="specialist-card specialist-card--contact">
-            <div className="specialist-card__media">
-              <img src={contactPerson.image} alt={contactPerson.name} />
-            </div>
-            <div className="specialist-card__content">
-              <h3>{contactPerson.name}</h3>
-              <strong>{contactPerson.role}</strong>
-              <p>{contactPerson.description}</p>
+          {contactPeople.map((contactPerson) => (
+            <article key={contactPerson.email} className="specialist-card specialist-card--contact">
+              <div className="specialist-card__media">
+                <img
+                  src={contactPerson.image}
+                  alt={contactPerson.name}
+                  style={{ objectPosition: contactPerson.imagePosition }}
+                />
+              </div>
+              <div className="specialist-card__content">
+                <h3>{contactPerson.name}</h3>
+                <strong>{contactPerson.role}</strong>
+                <p>{contactPerson.description}</p>
 
-              <div className="specialist-contact-list" aria-label="Datos de contacto">
-                <a className="specialist-contact-item" href={contactPerson.phoneHref}>
-                  <Phone size={19} />
-                  <span>
-                    <b>Teléfono</b>
-                    {contactPerson.phoneLabel}
-                  </span>
-                </a>
-                <a className="specialist-contact-item" href={`mailto:${contactPerson.email}`}>
-                  <Mail size={19} />
-                  <span>
-                    <b>Email</b>
-                    {contactPerson.email}
-                  </span>
-                </a>
-                <div className="specialist-contact-item">
-                  <MapPin size={19} />
-                  <span>
-                    <b>Dirección</b>
-                    {contactPerson.address}
-                  </span>
+                <div className="specialist-contact-list" aria-label={`Datos de contacto de ${contactPerson.name}`}>
+                  <a className="specialist-contact-item" href={contactPerson.phoneHref}>
+                    <Phone size={19} />
+                    <span>
+                      <b>Teléfono</b>
+                      {contactPerson.phoneLabel}
+                    </span>
+                  </a>
+                  <a className="specialist-contact-item" href={`mailto:${contactPerson.email}`}>
+                    <Mail size={19} />
+                    <span>
+                      <b>Email</b>
+                      {contactPerson.email}
+                    </span>
+                  </a>
+                  <div className="specialist-contact-item">
+                    <MapPin size={19} />
+                    <span>
+                      <b>Dirección</b>
+                      {contactPerson.address}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          ))}
         </div>
       </section>
 

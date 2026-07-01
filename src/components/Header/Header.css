@@ -1,4 +1,4 @@
-.site-header {
+﻿.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -100,7 +100,7 @@
   color: var(--color-on-primary);
   font-size: 0.96rem;
   font-weight: 800;
-  box-shadow: 0 12px 24px rgb(0 93 172 / 16%);
+  box-shadow: 0 12px 24px rgb(33 154 163 / 16%);
 }
 
 .theme-button {
@@ -131,14 +131,14 @@
 .app-shell--dark .site-nav__link:hover,
 .app-shell--dark .site-nav__link--active,
 .app-shell--dark .brand {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .app-shell--dark .menu-button,
 .app-shell--dark .theme-button {
   border-color: rgb(237 248 255 / 18%);
   background: #12374b;
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .app-shell--dark .theme-button--active {
@@ -242,7 +242,7 @@
   .app-shell--dark .mobile-nav__link,
   .app-shell--dark .mobile-nav__theme {
     background: #12374b;
-    color: #edf8ff;
+    color: #f4fbf8;
   }
 
   .mobile-nav__account {

@@ -1,11 +1,11 @@
-.diseases-page {
+﻿.diseases-page {
   min-height: 100vh;
   padding: 0 0 96px;
-  background: linear-gradient(180deg, #edf8ff 0%, var(--color-background) 32%, #ffffff 100%);
+  background: linear-gradient(180deg, #f4fbf8 0%, var(--color-background) 32%, #ffffff 100%);
 }
 
 .app-shell--dark .diseases-page {
-  background: linear-gradient(180deg, #071e2b 0%, #0b2535 36%, #071e2b 100%);
+  background: linear-gradient(180deg, #10251f 0%, #18362d 36%, #10251f 100%);
 }
 
 .diseases-hero {
@@ -36,7 +36,7 @@
 .diseases-hero h1 {
   max-width: 650px;
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(3rem, 6.2vw, 5rem);
   line-height: 1.05;
   font-weight: 900;
@@ -47,7 +47,7 @@
 .app-shell--dark .emotional-impact h2,
 .app-shell--dark .disease-card__content h3,
 .app-shell--dark .disease-modal__content h2 {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .diseases-intro {
@@ -56,7 +56,7 @@
   border: 1px solid var(--color-outline-variant);
   border-radius: 32px;
   background: rgb(255 255 255 / 90%);
-  box-shadow: 0 24px 62px rgb(0 93 172 / 9%);
+  box-shadow: 0 24px 62px rgb(33 154 163 / 9%);
   text-align: left;
 }
 
@@ -67,7 +67,7 @@
 .app-shell--dark .disease-modal__panel,
 .app-shell--dark .disease-modal__details .disease-modal__section {
   border-color: rgb(237 248 255 / 18%);
-  background: #0d2b3c;
+  background: #1f4036;
   box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
 }
 
@@ -129,7 +129,7 @@
 
 .emotional-impact h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.26rem;
 }
 
@@ -178,7 +178,7 @@
 
 .diseases-list__heading h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
   line-height: 1.05;
@@ -220,7 +220,7 @@
 
 .disease-card__content h3 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.42rem;
   font-weight: 900;
   line-height: 1.18;
@@ -256,7 +256,7 @@
   font-size: 0.94rem;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 12px 24px rgb(0 93 172 / 16%);
+  box-shadow: 0 12px 24px rgb(33 154 163 / 16%);
 }
 
 .diseases-note {
@@ -326,14 +326,14 @@
   border: 0;
   border-radius: 999px;
   background: rgb(255 255 255 / 92%);
-  color: #061e2b;
+  color: #10251f;
   cursor: pointer;
   box-shadow: 0 12px 24px rgb(7 30 39 / 14%);
 }
 
 .app-shell--dark .disease-modal__close {
   background: rgb(13 43 60 / 94%);
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .disease-modal__media {
@@ -354,7 +354,7 @@
 
 .disease-modal__content h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   line-height: 1.05;

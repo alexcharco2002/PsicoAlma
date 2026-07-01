@@ -1,7 +1,7 @@
-.services-page {
+﻿.services-page {
   min-height: 100vh;
   padding: 0 0 96px;
-  background: linear-gradient(180deg, #edf8ff 0%, var(--color-background) 32%, #ffffff 100%);
+  background: linear-gradient(180deg, #f4fbf8 0%, var(--color-background) 32%, #ffffff 100%);
 }
 
 .services-hero {
@@ -32,7 +32,7 @@
 .services-hero h1 {
   max-width: 560px;
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2.7rem, 5.2vw, 4.35rem);
   line-height: 1.05;
   font-weight: 900;
@@ -47,7 +47,7 @@
   border: 1px solid var(--color-outline-variant);
   border-radius: 32px;
   background: rgb(255 255 255 / 90%);
-  box-shadow: 0 24px 62px rgb(0 93 172 / 9%);
+  box-shadow: 0 24px 62px rgb(33 154 163 / 9%);
   text-align: left;
 }
 
@@ -81,7 +81,7 @@
   font: inherit;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgb(0 93 172 / 16%);
+  box-shadow: 0 14px 30px rgb(33 154 163 / 16%);
 }
 
 .services-overview {
@@ -117,7 +117,7 @@
 
 .services-overview h2 {
   margin: 22px 0 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.34rem;
   line-height: 1.2;
 }
@@ -144,7 +144,7 @@
 
 .services-list__heading h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
   line-height: 1.05;
@@ -206,7 +206,7 @@
 
 .service-card h3 {
   margin: 28px 0 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.32rem;
   font-weight: 900;
   line-height: 1.2;
@@ -334,14 +334,14 @@
 }
 
 .app-shell--dark .services-page {
-  background: linear-gradient(180deg, #071e2b 0%, #0b2535 36%, #071e2b 100%);
+  background: linear-gradient(180deg, #10251f 0%, #18362d 36%, #10251f 100%);
 }
 
 .app-shell--dark .services-hero h1,
 .app-shell--dark .services-overview h2,
 .app-shell--dark .services-list__heading h2,
 .app-shell--dark .service-card h3 {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .app-shell--dark .services-intro,
@@ -349,7 +349,7 @@
 .app-shell--dark .service-card,
 .app-shell--dark .services-note {
   border-color: rgb(237 248 255 / 18%);
-  background: #0d2b3c;
+  background: #1f4036;
   box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
 }
 

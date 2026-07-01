@@ -1,11 +1,14 @@
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import './Footer.css';
+
+const platformLinks = ['Inicio', 'Servicios', 'Evaluación', 'Tratamiento'];
+const supportLinks = ['Enfermedades', 'Prevención', 'Promoción', 'Contactos'];
 
 function Footer({ onNavigate }) {
   return (
     <footer className="site-footer">
       <div className="site-footer__grid">
-        <div>
+        <div className="site-footer__brand-block">
           <button type="button" className="footer-brand" onClick={() => onNavigate('inicio')}>
             <img src="/images/icono_psicoalma.png" alt="" />
             <span>PsicoAlma</span>
@@ -15,25 +18,39 @@ function Footer({ onNavigate }) {
           </p>
         </div>
 
-        <FooterColumn title="Plataforma" items={['Servicios', 'Evaluación', 'Tratamiento', 'Prevención', 'Promoción']} onNavigate={onNavigate} />
-        <FooterColumn title="Apoyo" items={['Enfermedades', 'Contacto', 'Orientación', 'Especialistas']} onNavigate={onNavigate} />
+        <FooterColumn title="Plataforma" items={platformLinks} onNavigate={onNavigate} />
+        <FooterColumn title="Apoyo" items={supportLinks} onNavigate={onNavigate} />
 
-        <div>
+        <div className="site-footer__contact">
           <h3 className="site-footer__title">Contacto</h3>
-          <p className="site-footer__line">
+          <a className="site-footer__line" href="mailto:estefaniaguaman2004@gmail.com">
             <Mail size={18} />
-            contacto@psicoalma.org
-          </p>
+            estefaniaguaman2004@gmail.com
+          </a>
+          <a className="site-footer__line" href="mailto:rositaortega225@gmail.com">
+            <Mail size={18} />
+            rositaortega225@gmail.com
+          </a>
+          <a className="site-footer__line" href="tel:+593961420897">
+            <Phone size={18} />
+            +593 961 420 897
+          </a>
+          <a className="site-footer__line" href="tel:+593993789944">
+            <Phone size={18} />
+            +593 993 789 944
+          </a>
           <p className="site-footer__line">
             <MapPin size={18} />
-            Ecuador
+            Unach, Ecuador
           </p>
         </div>
       </div>
 
       <div className="site-footer__bottom">
-        <span>© 2026 PsicoAlma. Diseñado para la empatía.</span>
-        <span>Privacidad · Términos · Contacto</span>
+        <span>© 2026 PsicoAlma. Diseñado para acompañar con empatía.</span>
+        <button type="button" onClick={() => onNavigate('contacto')}>
+          Contactos
+        </button>
       </div>
     </footer>
   );
@@ -56,15 +73,14 @@ function FooterColumn({ title, items, onNavigate }) {
 
 function getFooterTarget(item) {
   const targets = {
+    Inicio: 'inicio',
     Servicios: 'servicios',
     Evaluación: 'evaluacion',
     Tratamiento: 'tratamiento',
     Prevención: 'prevencion',
     Promoción: 'promocion',
     Enfermedades: 'enfermedades',
-    Contacto: 'contacto',
-    Orientación: 'evaluacion',
-    Especialistas: 'contacto',
+    Contactos: 'contacto',
   };
 
   return targets[item] ?? 'inicio';

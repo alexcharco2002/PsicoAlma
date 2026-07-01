@@ -1,7 +1,7 @@
-.contact-page {
+﻿.contact-page {
   min-height: 100vh;
   padding: 0 0 96px;
-  background: linear-gradient(180deg, #edf8ff 0%, var(--color-background) 32%, #ffffff 100%);
+  background: linear-gradient(180deg, #f4fbf8 0%, var(--color-background) 32%, #ffffff 100%);
 }
 
 .contact-hero {
@@ -32,7 +32,7 @@
 .contact-hero h1 {
   max-width: 680px;
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(3rem, 6.2vw, 5rem);
   line-height: 1.05;
   font-weight: 900;
@@ -44,7 +44,7 @@
   border: 1px solid var(--color-outline-variant);
   border-radius: 28px;
   background: rgb(255 255 255 / 86%);
-  box-shadow: 0 22px 55px rgb(0 93 172 / 10%);
+  box-shadow: 0 22px 55px rgb(33 154 163 / 10%);
   text-align: left;
 }
 
@@ -98,7 +98,7 @@
 
 .contact-channels h2 {
   margin: 16px 0 10px;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.22rem;
 }
 
@@ -125,7 +125,7 @@
 
 .specialists-section__heading h2 {
   margin: 4px 0 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   line-height: 1.05;
@@ -170,7 +170,7 @@
 }
 
 .specialists-grid--single {
-  grid-template-columns: minmax(0, 920px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   justify-content: center;
 }
 
@@ -184,7 +184,7 @@
 
 .specialist-card--contact {
   display: grid;
-  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: 1fr;
   border-radius: 24px;
 }
 
@@ -196,8 +196,8 @@
 }
 
 .specialist-card--contact .specialist-card__media {
-  height: 100%;
-  min-height: 420px;
+  height: 240px;
+  min-height: 240px;
 }
 
 .specialist-card__media img {
@@ -223,7 +223,7 @@
   border-radius: 8px;
   padding: 0 9px;
   background: rgb(255 255 255 / 92%);
-  color: #061e2b;
+  color: #10251f;
   font-size: 0.86rem;
   font-weight: 900;
   box-shadow: 0 8px 18px rgb(7 30 39 / 15%);
@@ -239,7 +239,7 @@
 
 .specialist-card__content h3 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.2rem;
   font-weight: 900;
 }
@@ -299,7 +299,7 @@
 
 .specialist-contact-item:hover {
   transform: translateY(-2px);
-  border-color: rgb(0 121 107 / 38%);
+  border-color: rgb(60 188 195 / 38%);
   box-shadow: 0 14px 28px rgb(7 30 39 / 9%);
 }
 
@@ -319,7 +319,7 @@
 }
 
 .specialist-contact-item b {
-  color: #061e2b;
+  color: #10251f;
   font-size: 0.9rem;
   font-weight: 900;
 }
@@ -412,7 +412,8 @@
   }
 
   .specialist-card--contact .specialist-card__media {
-    min-height: 340px;
+    height: 230px;
+    min-height: 230px;
   }
 }
 
@@ -438,7 +439,8 @@
   }
 
   .specialist-card--contact .specialist-card__media {
-    min-height: 320px;
+    height: 220px;
+    min-height: 220px;
   }
 
   .contact-help {
@@ -448,7 +450,7 @@
 }
 
 .app-shell--dark .contact-page {
-  background: linear-gradient(180deg, #071e2b 0%, #0b2535 36%, #071e2b 100%);
+  background: linear-gradient(180deg, #10251f 0%, #18362d 36%, #10251f 100%);
 }
 
 .app-shell--dark .contact-hero h1,
@@ -457,7 +459,7 @@
 .app-shell--dark .specialists-section__heading h2,
 .app-shell--dark .specialist-card__content h3,
 .app-shell--dark .specialist-contact-item b {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .app-shell--dark .contact-intro,
@@ -466,7 +468,7 @@
 .app-shell--dark .specialist-contact-item,
 .app-shell--dark .contact-help {
   border-color: rgb(237 248 255 / 18%);
-  background: #0d2b3c;
+  background: #1f4036;
   box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
 }
 

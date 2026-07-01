@@ -1,4 +1,4 @@
-.media-lightbox {
+﻿.media-lightbox {
   position: fixed;
   inset: 0;
   z-index: 120;
@@ -44,7 +44,7 @@
 
 .media-lightbox__top h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(1.35rem, 3vw, 2.2rem);
   font-weight: 900;
   line-height: 1.1;
@@ -58,13 +58,13 @@
   border: 0;
   border-radius: 999px;
   background: var(--color-surface-container-low);
-  color: #061e2b;
+  color: #10251f;
   cursor: pointer;
 }
 
 .media-lightbox__viewer {
   min-height: 0;
-  background: #061e2b;
+  background: #10251f;
 }
 
 .media-lightbox__viewer video,
@@ -105,7 +105,7 @@
 
 .app-shell--dark .media-lightbox__panel {
   border-color: rgb(237 248 255 / 18%);
-  background: #0d2b3c;
+  background: #1f4036;
 }
 
 .app-shell--dark .media-lightbox__top,
@@ -115,7 +115,7 @@
 
 .app-shell--dark .media-lightbox__top h2,
 .app-shell--dark .media-lightbox__close {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .app-shell--dark .media-lightbox__close {

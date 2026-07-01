@@ -1,11 +1,11 @@
-.prevention-page {
+﻿.prevention-page {
   min-height: 100vh;
   padding: 0 0 96px;
-  background: linear-gradient(180deg, #edf8ff 0%, var(--color-background) 32%, #ffffff 100%);
+  background: linear-gradient(180deg, #f4fbf8 0%, var(--color-background) 32%, #ffffff 100%);
 }
 
 .app-shell--dark .prevention-page {
-  background: linear-gradient(180deg, #071e2b 0%, #0b2535 36%, #071e2b 100%);
+  background: linear-gradient(180deg, #10251f 0%, #18362d 36%, #10251f 100%);
 }
 
 .prevention-hero {
@@ -36,7 +36,7 @@
 .prevention-hero h1 {
   max-width: 680px;
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(3rem, 6.2vw, 5rem);
   line-height: 1.05;
   font-weight: 900;
@@ -46,7 +46,7 @@
 .app-shell--dark .prevention-overview h2,
 .app-shell--dark .prevention-tips__heading h2,
 .app-shell--dark .prevention-tips__grid h3 {
-  color: #edf8ff;
+  color: #f4fbf8;
 }
 
 .prevention-intro {
@@ -55,7 +55,7 @@
   border: 1px solid var(--color-outline-variant);
   border-radius: 32px;
   background: rgb(255 255 255 / 90%);
-  box-shadow: 0 24px 62px rgb(0 93 172 / 9%);
+  box-shadow: 0 24px 62px rgb(33 154 163 / 9%);
   text-align: left;
 }
 
@@ -64,7 +64,7 @@
 .app-shell--dark .prevention-tips__grid article,
 .app-shell--dark .prevention-note {
   border-color: rgb(237 248 255 / 18%);
-  background: #0d2b3c;
+  background: #1f4036;
   box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
 }
 
@@ -107,7 +107,7 @@
   font: inherit;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgb(0 93 172 / 16%);
+  box-shadow: 0 14px 30px rgb(33 154 163 / 16%);
 }
 
 .prevention-overview {
@@ -140,7 +140,7 @@
 
 .prevention-overview h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.26rem;
 }
 
@@ -193,7 +193,7 @@
 
 .prevention-tips__heading h2 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
   line-height: 1.05;
@@ -230,7 +230,7 @@
 
 .prevention-tips__grid h3 {
   margin: 20px 0 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.24rem;
   font-weight: 900;
   line-height: 1.25;
@@ -257,7 +257,7 @@
   background: var(--color-primary);
   color: var(--color-on-primary);
   overflow: hidden;
-  box-shadow: 0 24px 56px rgb(0 93 172 / 14%);
+  box-shadow: 0 24px 56px rgb(33 154 163 / 14%);
 }
 
 .prevention-warning__content h2 {

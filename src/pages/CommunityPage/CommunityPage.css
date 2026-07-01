@@ -1,4 +1,4 @@
-.community-page {
+﻿.community-page {
   min-height: 100vh;
   padding: 82px 0 96px;
   background: var(--color-background);
@@ -95,7 +95,7 @@
 .comment-form input:focus,
 .comment-form textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 4px rgb(0 93 172 / 12%);
+  box-shadow: 0 0 0 4px rgb(33 154 163 / 12%);
 }
 
 .comment-form button {

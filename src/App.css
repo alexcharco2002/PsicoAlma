@@ -1,12 +1,12 @@
-.app-shell {
+﻿.app-shell {
   min-height: 100vh;
   background: var(--color-background);
   color: var(--color-on-surface);
 }
 
 .app-shell--dark {
-  background: #071e2b;
-  color: #edf8ff;
+  background: #10251f;
+  color: #f4fbf8;
 }
 
 .urgent-help-button {
@@ -21,12 +21,12 @@
   border: 0;
   border-radius: 999px;
   padding: 10px 20px;
-  background: #005dac;
+  background: var(--color-primary);
   color: #ffffff;
   font: inherit;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 18px 42px rgb(0 68 124 / 28%);
+  box-shadow: 0 18px 42px rgb(33 154 163 / 28%);
 }
 
 .urgent-help-button span {
@@ -98,12 +98,12 @@
   border: 1px solid var(--color-primary);
   background: var(--color-primary);
   color: var(--color-on-primary);
-  box-shadow: 0 16px 30px rgb(0 93 172 / 18%);
+  box-shadow: 0 16px 30px rgb(33 154 163 / 18%);
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 38px rgb(0 93 172 / 22%);
+  box-shadow: 0 20px 38px rgb(33 154 163 / 22%);
 }
 
 .secondary-button {

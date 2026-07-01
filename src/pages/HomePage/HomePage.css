@@ -1,25 +1,25 @@
-.home-page {
+﻿.home-page {
   background: var(--color-background);
   color: var(--color-on-surface);
   transition: background 180ms ease, color 180ms ease;
 }
 
 .home-page--dark {
-  --home-dark-background: #071e2b;
-  --home-dark-surface: #0d2b3c;
+  --home-dark-background: #10251f;
+  --home-dark-surface: #1f4036;
   --home-dark-surface-soft: #12374b;
-  --home-dark-text: #edf8ff;
+  --home-dark-text: #f4fbf8;
   --home-dark-muted: #c4d9e6;
   background: var(--home-dark-background);
 }
 
 .home-hero {
   min-height: auto;
-  background: linear-gradient(180deg, #edf8ff 0%, var(--color-background) 100%);
+  background: linear-gradient(180deg, #f4fbf8 0%, var(--color-background) 100%);
 }
 
 .home-page--dark .home-hero {
-  background: linear-gradient(180deg, #071e2b 0%, #0b2535 100%);
+  background: linear-gradient(180deg, #10251f 0%, #18362d 100%);
 }
 
 .home-hero__content {
@@ -53,7 +53,7 @@
 
 .home-hero h1 {
   margin: 0;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(3.7rem, 7.4vw, 5.55rem);
   line-height: 1.08;
   font-weight: 900;
@@ -140,7 +140,7 @@
   border-radius: 24px;
   padding: 0;
   background: transparent;
-  box-shadow: 0 22px 55px rgb(0 93 172 / 13%);
+  box-shadow: 0 22px 55px rgb(33 154 163 / 13%);
   cursor: pointer;
   transition:
     transform 220ms ease,
@@ -152,7 +152,7 @@
 .hero-photo-card:focus-visible {
   transform: translateY(-6px);
   border-color: rgb(151 243 226 / 88%);
-  box-shadow: 0 30px 76px rgb(0 93 172 / 18%);
+  box-shadow: 0 30px 76px rgb(33 154 163 / 18%);
   outline: none;
 }
 
@@ -394,7 +394,7 @@
 .path-step:hover {
   transform: translateY(-4px);
   border-color: rgb(25 118 210 / 34%);
-  box-shadow: 0 18px 40px rgb(0 93 172 / 12%);
+  box-shadow: 0 18px 40px rgb(33 154 163 / 12%);
 }
 
 .path-step__number {
@@ -417,7 +417,7 @@
 
 .path-step strong {
   margin-top: 18px;
-  color: #061e2b;
+  color: #10251f;
   font-size: 1.02rem;
   line-height: 1.25;
 }
@@ -438,7 +438,7 @@
 .home-quote blockquote {
   max-width: 920px;
   margin: 0 auto;
-  color: #061e2b;
+  color: #10251f;
   font-size: clamp(2rem, 4vw, 3.35rem);
   font-style: italic;
   font-weight: 700;
@@ -479,7 +479,7 @@
   background: var(--color-primary);
   color: var(--color-on-primary);
   text-align: center;
-  box-shadow: 0 22px 55px rgb(0 93 172 / 18%);
+  box-shadow: 0 22px 55px rgb(33 154 163 / 18%);
 }
 
 .home-cta__content::after {
@@ -539,7 +539,7 @@
 }
 
 .home-cta__actions button:last-child {
-  background: #005dac;
+  background: #219aa3;
   color: #ffffff;
 }
 
